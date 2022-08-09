@@ -140,3 +140,12 @@ export function isRegExp(obj: any) {
 export function isNaN(obj: any) {
   return isNumber(obj) && obj != +obj
 }
+
+/**
+ * isNil
+ * @param obj
+ * @returns
+ */
+export function isNil(obj: any) {
+  return isNull(obj) || isUndefined(obj)
+}
