@@ -6,15 +6,15 @@
  * @example
  *
  * getUrlParam('https://example.com?a=1&b=1');
- * // => {a:1,b:1}
+ * // => {a:'1',b:'1'}
  * getUrlParam('https://example.com?a=1&b=1',a);
- * // => 1
+ * // => '1'
  * getUrlParam('https://example.com?a=1&b=1&a=2');
- * // => {a:[1,2],b=1}
+ * // => {a:['1','2'],b:'1'}
  * getUrlParam('https://example.com?a=1&b=1&a=2',a);
- * // => [1,2]
+ * // => ['1','2']
  */
-export default function getUrlParams(url: string, key: string): any {
+export default function getUrlParams(url?: string, key?: string): any {
   url = url || window?.location?.href
   if (!url || url.split('?').length < 2 || !url.split('&').length) {
     return key ? void 0 : {}

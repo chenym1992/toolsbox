@@ -21,7 +21,10 @@
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
-    "types": ["node"]
+    "types": ["node","jest"],
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src"]
 }
