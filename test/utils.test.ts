@@ -1,4 +1,4 @@
-import { classof, isNaN } from '../src/utils/index'
+import { classof, isNaN } from '../src'
 
 describe('【Utils Funtions Api】', () => {
   test('#1 classof', () => {

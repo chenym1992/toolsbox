@@ -1,4 +1,4 @@
-import { getUrlParams, stringifyQueryString } from '../src/index'
+import { getUrlParams, stringifyQueryString } from '../src'
 
 describe('【Url Funtions Api】', () => {
   const testUrl = 'https://example.com?a=1&b=1&a=2'
