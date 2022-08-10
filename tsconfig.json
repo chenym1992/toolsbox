@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "dist",
     "sourceMap": true,
-    "target": "esnext",
+    "target": "ES5",
     "module": "ESNext",
     "moduleResolution": "node",
     "strict": true,
@@ -12,8 +11,6 @@
     "noImplicitAny": false,
     "noImplicitThis": false,
 
-    "declaration": true, // 生成声明文件，开启后会自动生成声明文件
-    "declarationDir": "./types", // 指定生成声明文件存放目录
     "noUnusedLocals": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
