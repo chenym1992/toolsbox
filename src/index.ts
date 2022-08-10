@@ -1,3 +1,5 @@
+export * from './funtions/byteToString'
+export * from './funtions/stringToByte'
 export * from './url/getUrlParams'
 export * from './url/stringifyQueryString'
 export * from './utils/index'
