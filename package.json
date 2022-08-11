@@ -19,7 +19,7 @@
     "format": "prettier --write --parser typescript \"(src|test|packages|types)/**/*.ts\"",
     "prepare": "husky install",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "release": "pnpm build&pnpm changelog"
+    "release": "pnpm build&&pnpm changelog"
   },
   "lint-staged": {
     "*.js": [
