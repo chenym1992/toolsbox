@@ -1,14 +1,17 @@
 {
   "name": "@xiaoke/toolsbox",
   "version": "0.0.1",
-  "packageManager":"pnpm@7.9.0",
+  "packageManager": "pnpm@7.9.0",
   "description": "前端业务常用工具库",
   "main": "dist/toolsbox.common.js",
   "module": "dist/toolsbox.esm.js",
   "types": "types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "types/*.d.ts"
   ],
+
   "scripts": {
     "test": "jest",
     "dev": "rollup -c rollup.config.ts --watch",
@@ -26,6 +29,22 @@
       "prettier --parser=typescript --write --ignore-unknown"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenym1992/toolsbox.git"
+  },
+  "keywords": [
+    "typescript",
+    "toolsbox",
+    "jest",
+    "rollup"
+  ],
+  "author": "chenym1992",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chenym1992/toolsbox/issues"
+  },
+  "homepage": "https://github.com/chenym1992/toolsbox#readme",
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
