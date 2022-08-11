@@ -5,7 +5,6 @@ import { terser } from 'rollup-plugin-terser'
 import { version } from './package.json'
 const banner =
   '/*!\n' +
-  ` * Build Time: ${new Date().toISOString()}\n` +
   ` * Toolsbox.js v${version}\n` +
   ` * (c) 2014-${new Date().getFullYear()} chenym1992\n` +
   ' * Released under the MIT License.\n' +
