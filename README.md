@@ -1,4 +1,4 @@
-# @xiaoke/toolsbox
+# fe-toolsbox
 
 前端业务常用工具库
 
