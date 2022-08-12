@@ -32,7 +32,7 @@ export default defineConfig([
         plugins: [terser()]
       }
     ],
-    plugins: [typescript()],
+    plugins: [typescript({ sourceMap: false })],
     watch: {
       exclude: 'node_modules/**'
     }

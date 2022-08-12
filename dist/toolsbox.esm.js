@@ -1,5 +1,4 @@
 /*!
- * Build Time: 2022-08-11T05:33:50.915Z
  * Toolsbox.js v0.0.1
  * (c) 2014-2022 chenym1992
  * Released under the MIT License.
@@ -86,6 +85,99 @@ function stringToByte(str) {
 }
 
 /**
+ * 节流
+ * @param fn 延迟毫秒后执行的函数
+ * @param delay delay 延迟的毫秒数
+ * @returns
+ */
+function throttle(fn, delay) {
+  if (delay === void 0) {
+    delay = 0
+  }
+  var start = 0
+  var timer
+  return function () {
+    var _this = this
+    var args = []
+    for (var _i = 0; _i < arguments.length; _i++) {
+      args[_i] = arguments[_i]
+    }
+    var now = +new Date()
+    if (now - start < delay) {
+      if (timer) clearTimeout(timer)
+      // timer && clearTimeout(timer)//两种都行
+      //  && 先算 && 左侧，若左侧为 false 那么右侧就不运算了。
+      timer = setTimeout(function () {
+        start = now
+        fn.apply(_this, args)
+      }, delay)
+    } else {
+      start = now
+      fn.apply(this, args)
+    }
+  }
+}
+
+/**
+ * 美化秒级时长显示
+ * @param duration
+ * @param options
+ * @returns
+ *
+ * @example
+ * makeDurationPretty(121)
+ * // => '2分1秒'
+ */
+function makeDurationPretty(duration, options) {
+  if (options === void 0) {
+    options = {
+      d: '天',
+      h: '时',
+      m: '分',
+      s: '秒'
+    }
+  }
+  if (duration <= 0) {
+    return 0
+  }
+  var d = options.d,
+    h = options.h,
+    m = options.m,
+    s = options.s
+  var days = duration / 60 / 60 / 24
+  var daysRound = Math.floor(days)
+  var daysStr = ''.concat(daysRound > 0 ? ''.concat(daysRound).concat(d) : '')
+  // hours
+  var hours = duration / 60 / 60 - 24 * daysRound
+  var hoursRound = Math.floor(hours)
+  var hoursStr = ''.concat(
+    hoursRound > 0 ? ''.concat(hoursRound).concat(h) : ''
+  )
+  // minutes
+  var minutes = duration / 60 - 24 * 60 * daysRound - 60 * hoursRound
+  var minutesRound = Math.floor(minutes)
+  var minutesStr = ''.concat(
+    minutesRound > 0 ? ''.concat(minutesRound).concat(m) : ''
+  )
+  // seconds
+  var seconds =
+    duration -
+    24 * 60 * 60 * daysRound -
+    60 * 60 * hoursRound -
+    60 * minutesRound
+  var secondsRound = Math.floor(seconds)
+  var secondsStr = ''.concat(
+    secondsRound > 0 ? ''.concat(secondsRound).concat(s) : ''
+  )
+  var durationStr = ''
+    .concat(daysStr)
+    .concat(hoursStr)
+    .concat(minutesStr)
+    .concat(secondsStr)
+  return durationStr
+}
+
+/**
  * 获取url参数
  * @param  url
  * @param key
@@ -130,38 +222,6 @@ function getUrlParams(url, key) {
     }
   })
   return key ? query[key] : query
-}
-
-/**
- * 简单对象序列化
- * @param obj
- * @returns
- *
- * @example
- * stringifyQueryString({a:[1,2,3],b:{a:3},c:4})
- */
-function stringifyQueryString(obj) {
-  var paramsArray = []
-  var _loop_1 = function (key) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      var val = obj[key]
-      if (isArray(val)) {
-        val.forEach(function (v) {
-          paramsArray.push(''.concat(key, '=').concat(v))
-        })
-      } else if (isObject(val)) {
-        paramsArray.push(
-          ''.concat(key, '=').concat(encodeURIComponent(JSON.stringify(val)))
-        )
-      } else {
-        paramsArray.push(''.concat(key, '=').concat(val))
-      }
-    }
-  }
-  for (var key in obj) {
-    _loop_1(key)
-  }
-  return paramsArray.join('&')
 }
 
 /**
@@ -302,6 +362,38 @@ function isNil(obj) {
   return isNull(obj) || isUndefined(obj)
 }
 
+/**
+ * 简单对象序列化
+ * @param obj
+ * @returns
+ *
+ * @example
+ * stringifyQueryString({a:[1,2,3],b:{a:3},c:4})
+ */
+function stringifyQueryString(obj) {
+  var paramsArray = []
+  var _loop_1 = function (key) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      var val = obj[key]
+      if (isArray(val)) {
+        val.forEach(function (v) {
+          paramsArray.push(''.concat(key, '=').concat(v))
+        })
+      } else if (isObject(val)) {
+        paramsArray.push(
+          ''.concat(key, '=').concat(encodeURIComponent(JSON.stringify(val)))
+        )
+      } else {
+        paramsArray.push(''.concat(key, '=').concat(val))
+      }
+    }
+  }
+  for (var key in obj) {
+    _loop_1(key)
+  }
+  return paramsArray.join('&')
+}
+
 export {
   byteToString,
   classof,
@@ -320,6 +412,8 @@ export {
   isString,
   isSymbol,
   isUndefined,
+  makeDurationPretty,
   stringToByte,
-  stringifyQueryString
+  stringifyQueryString,
+  throttle
 }

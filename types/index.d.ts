@@ -21,6 +21,35 @@ declare function byteToString(arr: number[]): string
 declare function stringToByte(str: string): number[]
 
 /**
+ * 节流
+ * @param fn 延迟毫秒后执行的函数
+ * @param delay delay 延迟的毫秒数
+ * @returns
+ */
+declare function throttle(fn: Function, delay?: number): (...args: any) => void
+
+interface PrettyOptions {
+  d: string
+  h: string
+  m: string
+  s: string
+}
+/**
+ * 美化秒级时长显示
+ * @param duration
+ * @param options
+ * @returns
+ *
+ * @example
+ * makeDurationPretty(121)
+ * // => '2分1秒'
+ */
+declare function makeDurationPretty(
+  duration: number,
+  options?: PrettyOptions
+): string | 0
+
+/**
  * 获取url参数
  * @param  url
  * @param key
@@ -171,6 +200,8 @@ export {
   isString,
   isSymbol,
   isUndefined,
+  makeDurationPretty,
   stringToByte,
-  stringifyQueryString
+  stringifyQueryString,
+  throttle
 }

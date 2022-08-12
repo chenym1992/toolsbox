@@ -1,4 +1,4 @@
-import { isArray, isObject } from '..'
+import { isArray, isObject } from '../utils'
 
 /**
  * 简单对象序列化
