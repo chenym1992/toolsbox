@@ -6,12 +6,21 @@
 
 ## API 文档:package:
 
-### Url
+### functions
+
+- [byteToString](https://github.com/chenym1992/toolsbox/blob/master/src/functions/byteToString.ts) 字节数组转字符串
+- [stringToByte](https://github.com/chenym1992/toolsbox/blob/master/src/functions/stringToByte.ts) 字符串转字节数组
+
+### time
+
+- [makeDurationPretty](https://github.com/chenym1992/toolsbox/blob/master/src/time/makeDurationPretty.ts) 美化时长显示
+
+### url
 
 - [getUrlParams](https://github.com/chenym1992/toolsbox/blob/master/src/url/getUrlParams.ts) 获取 Url 完整参数或指定字段参数
 - [stringifyQueryString](https://github.com/chenym1992/toolsbox/blob/master/src/url/stringifyQueryString.ts) 简单对象序列化
 
-### Utils
+### utils
 
 - [classof](https://github.com/chenym1992/toolsbox/blob/master/src/utils/index.ts#L20) 获取任意对象基本数据类型
 - [isNumber](https://github.com/chenym1992/toolsbox/blob/master/src/utils/index.ts#L32) 判断 number 类型
