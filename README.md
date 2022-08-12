@@ -8,10 +8,10 @@
 
 ### functions
 
-- [byteToString](https://github.com/chenym1992/toolsbox/blob/master/src/functions/byteToString.ts) 字节数组转字符串
-- [stringToByte](https://github.com/chenym1992/toolsbox/blob/master/src/functions/stringToByte.ts) 字符串转字节数组
-- [throttle](https://github.com/chenym1992/toolsbox/blob/master/src/functions/throttle.ts) 节流函数
-- [debounce](https://github.com/chenym1992/toolsbox/blob/master/src/functions/debounce.ts) 防抖函数
+- [byteToString](https://github.com/chenym1992/toolsbox/blob/master/src/funtions/byteToString.ts) 字节数组转字符串
+- [stringToByte](https://github.com/chenym1992/toolsbox/blob/master/src/funtions/stringToByte.ts) 字符串转字节数组
+- [throttle](https://github.com/chenym1992/toolsbox/blob/master/src/funtions/throttle.ts) 节流函数
+- [debounce](https://github.com/chenym1992/toolsbox/blob/master/src/funtions/debounce.ts) 防抖函数
 
 ### time
 
