@@ -1,3 +1,12 @@
+# fe-toolsbox
+### [0.0.2](https://github.com/chenym1992/toolsbox/compare/v0.0.1...v0.0.2) (2022-08-12)
+
+
+### Features
+
+* **functions:** debounce throttle ([88f7c1a](https://github.com/chenym1992/toolsbox/commit/88f7c1a19ce016de805bd79b52b12f46dc92fd3b))
+* **makeDurationPretty.ts:** makeDurationPretty ([dd77e13](https://github.com/chenym1992/toolsbox/commit/dd77e13742332c758d7d9202dc60c7f546ac105e))
+
 ## 0.0.1 (2022-08-11)
 
 
@@ -7,7 +16,3 @@
 * byteToString,stringToByte ([8619f73](https://github.com/chenym1992/toolsbox/commit/8619f73904d616c81573a0c438469ba6ea4ab287))
 * url/getUrlParams ([3f3b27e](https://github.com/chenym1992/toolsbox/commit/3f3b27ee1a6680b7962c24a4699af6f002f9a203))
 * **utils/index.ts:** isNil ([12bbfea](https://github.com/chenym1992/toolsbox/commit/12bbfea7cebc2aaa8bd3da7e93653e02d3b303dd))
-
-
-
-
