@@ -10,6 +10,14 @@ All notable changes to this project will be documented in this file. See [standa
 * 新增EventEmitter  事件总线 ([0369cf7](https://github.com/chenym1992/toolsbox/commit/0369cf7a90e5eef095827514ab3016f431d0241c))
 * **time:** 新增dateFormat时间格式化 ([35f47e4](https://github.com/chenym1992/toolsbox/commit/35f47e4d10625e244f29ecf6152517cd14c0db11))
 
+### [0.0.3](https://github.com/chenym1992/toolsbox/compare/v0.0.2...v0.0.3) (2022-08-12)
+
+
+### Features
+
+* 新增EventEmitter  事件总线 ([0369cf7](https://github.com/chenym1992/toolsbox/commit/0369cf7a90e5eef095827514ab3016f431d0241c))
+* **time:** 新增dateFormat时间格式化 ([35f47e4](https://github.com/chenym1992/toolsbox/commit/35f47e4d10625e244f29ecf6152517cd14c0db11))
+
 ### [0.0.2](https://github.com/chenym1992/toolsbox/compare/v0.0.1...v0.0.2) (2022-08-12)
 
 
