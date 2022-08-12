@@ -105,8 +105,6 @@ function throttle(fn, delay) {
     var now = +new Date()
     if (now - start < delay) {
       if (timer) clearTimeout(timer)
-      // timer && clearTimeout(timer)//两种都行
-      //  && 先算 && 左侧，若左侧为 false 那么右侧就不运算了。
       timer = setTimeout(function () {
         start = now
         fn.apply(_this, args)
@@ -115,6 +113,29 @@ function throttle(fn, delay) {
       start = now
       fn.apply(this, args)
     }
+  }
+}
+
+var timer
+/**
+ * 防抖:保证一个函数在多少毫秒内不再被触发，只会执行一次。
+ * @param fn
+ * @param delay
+ * @returns
+ */
+function debounce(fn, delay) {
+  if (delay === void 0) {
+    delay = 0
+  }
+  return function () {
+    var args = []
+    for (var _i = 0; _i < arguments.length; _i++) {
+      args[_i] = arguments[_i]
+    }
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(function () {
+      fn.call(this, args)
+    }, delay)
   }
 }
 
@@ -397,6 +418,7 @@ function stringifyQueryString(obj) {
 export {
   byteToString,
   classof,
+  debounce,
   getUrlParams,
   isArray,
   isBigInt,

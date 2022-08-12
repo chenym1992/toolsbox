@@ -28,6 +28,14 @@ declare function stringToByte(str: string): number[]
  */
 declare function throttle(fn: Function, delay?: number): (...args: any) => void
 
+/**
+ * 防抖:保证一个函数在多少毫秒内不再被触发，只会执行一次。
+ * @param fn
+ * @param delay
+ * @returns
+ */
+declare function debounce(fn: Function, delay?: number): (...args: any) => void
+
 interface PrettyOptions {
   d: string
   h: string
@@ -185,6 +193,7 @@ declare function isNil(obj: any): boolean
 export {
   byteToString,
   classof,
+  debounce,
   getUrlParams,
   isArray,
   isBigInt,

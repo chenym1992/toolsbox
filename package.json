@@ -14,10 +14,10 @@
   "scripts": {
     "test": "jest",
     "dev": "rollup -c rollup.config.ts --watch",
-    "build": "rollup -c rollup.config.ts && git add dist types ",
+    "build": "rollup -c rollup.config.ts",
     "format": "prettier --write --parser typescript \"(src|test|packages|types)/**/*.ts\"",
     "prepare": "husky install",
-    "release": "pnpm build&&standard-version"
+    "release": "standard-version --header='# fe-toolsbox'"
   },
   "lint-staged": {
     "*.js": [
