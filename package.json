@@ -1,6 +1,6 @@
 {
   "name": "fe-toolsbox",
-  "version": "0.0.4",
+  "version": "0.0.2",
   "packageManager": "pnpm@7.9.0",
   "description": "前端业务常用工具库",
   "main": "dist/toolsbox.common.js",
@@ -15,7 +15,7 @@
     "test": "jest",
     "format": "prettier --write --parser typescript \"(src|test|packages|types)/**/*.ts\"",
     "prepare": "husky install",
-    "release": "standard-version"
+    "release": "node scripts/build.js"
   },
   "lint-staged": {
     "*.js": [

@@ -18,6 +18,10 @@ const banner =
   ' */'
 
 const build = async () => {
+  if (shell.exec('pnpm test').code !== 0) {
+    shell.echo('Unit test faild')
+    shell.exit(1)
+  }
   const bundle = await rollup({
     input: './src/index.ts',
     plugins: [
@@ -64,7 +68,12 @@ const build = async () => {
     changelogHeader: '# fe-toolsbox'
   })
     .then(() => {
-      shell.echo(`release success`)
+      if (shell.exec('git push --follow-tags origin main').code !== 0) {
+        shell.echo('Error: Git Push Tag Failed, Please Tryagain')
+        shell.exit(1)
+      } else {
+        shell.echo(`release success`)
+      }
     })
     .catch(err => {
       shell.echo(`standard-version failed with message: ${err.message}`)
