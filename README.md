@@ -12,6 +12,7 @@
 - [stringToByte](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/stringToByte.ts) 字符串转字节数组
 - [throttle](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/throttle.ts) 节流函数
 - [debounce](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/debounce.ts) 防抖函数
+- [EventEmitter](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/eventEmitter.ts) EventEmitter
 
 ### time
 

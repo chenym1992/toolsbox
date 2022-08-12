@@ -1,4 +1,10 @@
-import { byteToString, debounce, stringToByte, throttle } from '../src'
+import {
+  byteToString,
+  debounce,
+  EventEmitter,
+  stringToByte,
+  throttle
+} from '../src'
 
 describe('【Funtions Api】', () => {
   test('#1 stringToByte', () => {
@@ -33,5 +39,22 @@ describe('【Funtions Api】', () => {
       }
     }
     expect(funcSpy).toHaveBeenCalledTimes(25)
+  })
+
+  test('#5 eventEmitter', () => {
+    const bus = new EventEmitter()
+    bus.once('click', res => {
+      expect(res).toBe('123')
+    })
+    bus.on({
+      click: (res: any) => {
+        expect(res).toBe('123')
+      },
+      click2: (res: any) => {
+        expect(res).toBe('1235')
+      }
+    })
+    bus.emit('click', '123')
+    bus.emit('click2', '1235')
   })
 })
