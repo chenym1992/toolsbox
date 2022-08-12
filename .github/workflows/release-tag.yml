@@ -7,49 +7,7 @@ on:
 name: Create Release
 
 jobs:
-  unit-test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.2
-        with:
-          version: 7
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3.4.1
-        with:
-          node-version: 16
-          cache: "pnpm"
-
-      - run: pnpm install
-
-      - name: Run unit-test
-        run: pnpm test
-  build:
-    needs: unit-test
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.2
-        with:
-          version: 7
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3.4.1
-        with:
-          node-version: 16
-          cache: "pnpm"
-
-      - run: pnpm install
-
-      - name: Run build
-        run: pnpm run build
   publish:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
       packages: write
