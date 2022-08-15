@@ -1,5 +1,5 @@
 /*!
- * Toolsbox.js v0.0.3
+ * Toolsbox.js v0.0.4
  * (c) 2014-2022 chenym1992
  * Released under the MIT License.
  */
