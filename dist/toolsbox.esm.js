@@ -1,5 +1,5 @@
 /*!
- * Toolsbox.js v0.0.2
+ * Toolsbox.js v0.0.3
  * (c) 2014-2022 chenym1992
  * Released under the MIT License.
  */
@@ -557,7 +557,9 @@ var EventEmitter = /*#__PURE__*/ (function () {
                 this.__once.set(event, set)
               }
 
-              set.add(callback)
+              if (callback) {
+                set.add(callback)
+              }
             }
           }
         } else {
@@ -570,7 +572,9 @@ var EventEmitter = /*#__PURE__*/ (function () {
               _this3.__once.set(event, set)
             }
 
-            set.add(callback)
+            if (callback) {
+              set.add(callback)
+            }
           })
         }
       }
@@ -607,6 +611,204 @@ var EventEmitter = /*#__PURE__*/ (function () {
 
   return EventEmitter
 })()
+
+/**
+ * 判断hex颜色表达式
+ * @param color : string;
+ * @returns
+ *
+ * @example
+ * isHexColor('#AAA')
+ * // => true
+ * isHexColor('#AAACCC')
+ * // => true
+ * isHexColor('#AAAA')
+ * // => true
+ * isHexColor('#AAACCC75')
+ * // => true
+ */
+function isHexColor(color) {
+  return /#([0-9a-fA-F]{3,4}){1,2}$/.test(color)
+}
+/**
+ * 判断RGB颜色表达式
+ * @param color : string;
+ * @returns
+ *
+ * @example
+ * isRgbColor('rgb(23,23,23)')
+ * // => true
+ * isRgbColor('rgba(23,23,23,0.1)')
+ * // => false
+ */
+
+function isRgbColor(color) {
+  return /^[rR][gG][Bb]\((\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*,){2}\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*\)$/.test(
+    color
+  )
+}
+/**
+ * 判断RGBA颜色表达式
+ * @param color : string;
+ * @returns
+ *
+ * @example
+ * isRgbaColor('rgb(23,23,23)')
+ * // => false
+ * isRgbaColor('rgba(23,23,23,0.1)')
+ * // => true
+ * isRgbaColor('rgba(23,23,23,11)')
+ * // => true
+ */
+
+function isRgbaColor(color) {
+  return /^[rR][gG][Bb][Aa]\((\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*,){3}\s*(\d+|0\.\d+)\s*\)/.test(
+    color
+  )
+}
+/**
+ * 判断是否是颜色表达式
+ * @param color : string;
+ * @returns
+ */
+
+function isColor(color) {
+  return isHexColor(color) || isRgbColor(color) || isRgbaColor(color)
+}
+
+/**
+ * 颜色hex转Rgb
+ * @param hexColor
+ * @returns
+ *
+ * @example
+ * hexToRgb('#FFFFFF')
+ * // => 'rgb(255,255,255)'
+ */
+
+function hexToRgb(hexColor) {
+  if (isHexColor(hexColor)) {
+    var color = hexColor.slice(1) // 去掉'#'号
+
+    var rgb = [
+      parseInt('0x' + color.slice(0, 2)),
+      parseInt('0x' + color.slice(2, 4)),
+      parseInt('0x' + color.slice(4, 6))
+    ]
+    return 'rgb('.concat(rgb.toString(), ')')
+  }
+}
+/**
+ * 颜色hex转Rgba
+ * @param hexColor
+ * @returns
+ *
+ * @example
+ * hexToRgba('#FFFFFF'))
+ * // => 'rgba(255,255,255,1)'
+ */
+
+function hexToRgba(hexColor) {
+  if (isHexColor(hexColor)) {
+    var color = hexColor.slice(1) // 去掉'#'号
+
+    var transparency = color.slice(6, 8)
+    var rgba = [
+      parseInt('0x'.concat(color.slice(0, 2))),
+      parseInt('0x'.concat(color.slice(2, 4))),
+      parseInt('0x'.concat(color.slice(4, 6))),
+      !!transparency
+        ? (parseInt('0x'.concat(transparency)) / 256).toFixed(2)
+        : 1
+    ]
+    return 'rgba('.concat(rgba.toString(), ')')
+  }
+}
+/**
+ * 颜色rgb转hex
+ * @param rgb
+ * @param toUpperCase
+ * @returns
+ *
+ * @example
+ * rgbToHex('rgb(0,0,15)')
+ * // => #00000F
+ * rgbToHex('rgb(0,0,15)',false)
+ * // => #00000f
+ */
+
+function rgbToHex(rgb) {
+  var toUpperCase =
+    arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true
+
+  if (isRgbColor(rgb)) {
+    var _rgb$match
+
+    var hex =
+      (_rgb$match = rgb.match(/\s*(2[0-4]\d|25[0-5]|[01]?\d{1,2})\s*/g)) ===
+        null || _rgb$match === void 0
+        ? void 0
+        : _rgb$match.map(function (v) {
+            if (parseInt(v) < 16) {
+              return '0'.concat(parseInt(v).toString(16))
+            }
+
+            return parseInt(v).toString(16)
+          })
+    return toUpperCase
+      ? '#'
+          .concat(hex === null || hex === void 0 ? void 0 : hex.join(''))
+          .toUpperCase()
+      : '#'.concat(hex === null || hex === void 0 ? void 0 : hex.join(''))
+  }
+}
+/**
+ * 颜色rgba转hex
+ * @param rgba
+ * @param toUpperCase
+ * @returns
+ *
+ * @example
+ * rgbaToHex('rgba(0,0,15,0.1)')
+ * // => #00000F19
+ * rgbaToHex('rgb(0,0,15,11)')
+ * // => #00000F
+ */
+
+function rgbaToHex(rgba) {
+  var toUpperCase =
+    arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true
+
+  if (isRgbaColor(rgba)) {
+    var hex = rgba
+      .slice(5, -1)
+      .split(',')
+      .map(function (v, idx) {
+        if (idx > 2) {
+          var transparency = +v * 256
+
+          if (transparency < 16) {
+            return '0'.concat(parseInt(transparency + '').toString(16))
+          } else if (transparency < 256) {
+            return parseInt(transparency + '').toString(16)
+          } else {
+            return ''
+          }
+        }
+
+        if (parseInt(v) < 16) {
+          return '0'.concat(parseInt(v).toString(16))
+        }
+
+        return parseInt(v).toString(16)
+      })
+    return toUpperCase
+      ? '#'
+          .concat(hex === null || hex === void 0 ? void 0 : hex.join(''))
+          .toUpperCase()
+      : '#'.concat(hex === null || hex === void 0 ? void 0 : hex.join(''))
+  }
+}
 
 /**
  * 美化秒级时长显示
@@ -803,21 +1005,29 @@ export {
   dateFormat,
   debounce,
   getUrlParams,
+  hexToRgb,
+  hexToRgba,
   isArray,
   isBigInt,
   isBoolean,
+  isColor,
   isDate,
   isFunction,
+  isHexColor,
   isNaN,
   isNil,
   isNull,
   isNumber,
   isObject,
   isRegExp,
+  isRgbColor,
+  isRgbaColor,
   isString,
   isSymbol,
   isUndefined,
   makeDurationPretty,
+  rgbToHex,
+  rgbaToHex,
   stringToByte,
   stringifyQueryString,
   throttle
