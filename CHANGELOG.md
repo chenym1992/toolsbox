@@ -1,5 +1,11 @@
 # fe-toolsbox
+### [0.0.4](https://github.com/chenym1992/toolsbox/compare/v0.0.3...v0.0.4) (2022-08-15)
 
+
+### Features
+
+* **color.ts:** 新增颜色格式判断 ([f2fa60c](https://github.com/chenym1992/toolsbox/commit/f2fa60c33ef7025cf91b2159f809dc3678356e4b))
+* **convertColots:** 颜色格式转换 ([cf43338](https://github.com/chenym1992/toolsbox/commit/cf433380c517b7626b56f7070528f1f0d34aede1))
 
 ### [0.0.3](https://github.com/chenym1992/toolsbox/compare/v0.0.2...v0.0.3) (2022-08-12)
 
