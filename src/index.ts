@@ -1,4 +1,5 @@
 export * from './funtions'
+export * from './regexp'
 export * from './time'
 export * from './url'
 export * from './utils'

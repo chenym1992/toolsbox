@@ -98,7 +98,7 @@ export class EventEmitter {
    * eventObj.once('event1 event2', callback)
    * eventObj.once({ event1: callback1, event2: callback2 })
    */
-  once(events: string | object, callback: Handler) {
+  once(events: string | object, callback?: Handler) {
     if (isObject(events)) {
       for (const event in events as object) {
         if (events.hasOwnProperty(event)) {
@@ -107,7 +107,9 @@ export class EventEmitter {
             set = new Set()
             this.__once.set(event, set)
           }
-          set.add(callback)
+          if (callback) {
+            set.add(callback)
+          }
         }
       }
     } else {
@@ -117,7 +119,9 @@ export class EventEmitter {
           set = new Set()
           this.__once.set(event, set)
         }
-        set.add(callback)
+        if (callback) {
+          set.add(callback)
+        }
       })
     }
   }
