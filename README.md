@@ -1,5 +1,6 @@
 # fe-toolsbox
-[![npm version](https://img.shields.io/static/v1?label=npm&message=v0.0.3&color=blue)](www.npmjs.com/package/fe-toolsbox) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://github.com/chenym1992/toolsbox/blob/main/LICENSE)   
+
+[![npm version](https://img.shields.io/static/v1?label=npm&message=v0.0.3&color=blue)](www.npmjs.com/package/fe-toolsbox) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://github.com/chenym1992/toolsbox/blob/main/LICENSE)
 
 前端业务常用工具库
 
@@ -14,6 +15,18 @@
 - [throttle](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/throttle.ts) 节流函数
 - [debounce](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/debounce.ts) 防抖函数
 - [EventEmitter](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/eventEmitter.ts) EventEmitter
+- [convertColors](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts) 转换颜色格式
+  - [hexToRgb](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L12) 颜色 hex 转 Rgb
+  - [hexToRgba](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L33) 颜色 hex 转 Rgba
+  - [rgbToHex](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L59) 颜色 rgb 转 hex
+  - [rgbaToHex](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L83) 颜色 rgba 转 hex
+
+### regexp
+
+- [isColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L53) 判断是否是颜色表达式
+- [isHexColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L16) 判断 hex 颜色表达式
+- [isRgbColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L31) 判断 RGB 颜色表达式
+- [isRgbaColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L48) 判断 RGBA 颜色表达式
 
 ### time
 
