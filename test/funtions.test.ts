@@ -2,6 +2,10 @@ import {
   byteToString,
   debounce,
   EventEmitter,
+  hexToRgb,
+  hexToRgba,
+  rgbaToHex,
+  rgbToHex,
   stringToByte,
   throttle
 } from '../src'
@@ -56,5 +60,15 @@ describe('【Funtions Api】', () => {
     })
     bus.emit('click', '123')
     bus.emit('click2', '1235')
+  })
+
+  test('#6 convertColors', () => {
+    expect(hexToRgb('#FFFFFF')).toBe('rgb(255,255,255)')
+    expect(hexToRgba('#FFFFFF')).toBe('rgba(255,255,255,1)')
+    expect(hexToRgba('#FFFFFF0F')).toBe('rgba(255,255,255,0.06)')
+    expect(rgbToHex('rgb(0,0,15)')).toBe('#00000F')
+    expect(rgbaToHex('rgba(0,0,15,0.1)')).toBe('#00000F19')
+    expect(rgbaToHex('rgba(0,0,15,11)')).toBe('#00000F')
+    expect(rgbaToHex('rgba(0,0,15,1)')).toBe('#00000F')
   })
 })
