@@ -50,11 +50,12 @@ const build = async () => {
     plugins: [terser()]
   })
 
-  await rollup({
+  const types = await rollup({
     input: './src/index.ts',
-    output: [{ file: 'types/index.d.ts', format: 'esm' }],
     plugins: [dts()]
   })
+
+  await types.write({ file: 'types/index.d.ts', format: 'esm' })
 
   if (shell.exec('git commit -am "chore: build dist types"').code !== 0) {
     shell.echo('Error: Git commit failed')
