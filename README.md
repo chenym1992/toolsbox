@@ -1,6 +1,6 @@
 # fe-toolsbox
 
-[![npm version](https://img.shields.io/static/v1?label=npm&message=v0.0.5&color=blue)](https://www.npmjs.com/package/fe-toolsbox) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://github.com/chenym1992/toolsbox/blob/main/LICENSE)
+[![npm version](https://img.shields.io/static/v1?label=npm&message=v0.0.6&color=blue)](https://www.npmjs.com/package/fe-toolsbox) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://github.com/chenym1992/toolsbox/blob/main/LICENSE)
 
 前端业务常用工具库
 
@@ -23,11 +23,26 @@
 
 ### regexp
 
-- [isColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L53) 判断是否是颜色表达式
-- [isHexColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L16) 判断 hex 颜色表达式
-- [isRgbColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L31) 判断 RGB 颜色表达式
-- [isRgbaColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L48) 判断 RGBA 颜色表达式
-
+- [color](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts) 颜色格式判断
+  - [isColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L53) 判断是否是颜色表达式
+  - [isHexColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L16) 判断 hex 颜色表达式
+  - [isRgbColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L31) 判断 RGB 颜色表达式
+  - [isRgbaColor](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/color.ts#L48) 判断 RGBA 颜色表达式
+- [string](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts) 字符串格式判断
+  - [isIphoneNumber](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L15) 宽松判断国内手机号
+  - [isTelNumber](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L32) 判断座机号码（带分机号码）
+  - [isIdCard](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L51) 判断身份证号
+  - [isValidIdCard](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L64) 判断身份证是否有效
+  - [isValidIdCard](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L64) 判断身份证是否有效
+  - [isEmail](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L154) 判断邮箱格式
+  - [isUrl](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L167) 判断Url格式
+  - [isEnglish](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L178) 判断英文格式
+  - [isChinese](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L187) 判断中文格式
+  - [isNumberPlate](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L202) 判断车牌号格式
+  - [isBase64](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L217) 判断base64格式
+  - [isBankCardNumber](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L228) 判断银行卡号(包含对公对私)格式
+  - [isStrongPwd](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L238) 强密码格式校验
+  - [checkPwdStrength](https://github.com/chenym1992/toolsbox/blob/main/src/regexp/string.ts#L261) 检测密码强度
 ### time
 
 - [makeDurationPretty](https://github.com/chenym1992/toolsbox/blob/main/src/time/makeDurationPretty.ts) 美化时长显示
