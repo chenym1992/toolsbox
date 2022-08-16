@@ -1,4 +1,11 @@
 # fe-toolsbox
+### [0.0.6](https://github.com/chenym1992/toolsbox/compare/v0.0.5...v0.0.6) (2022-08-16)
+
+
+### Features
+
+* **string.ts:** 新增isIphoneNumber、isTelNumber、isIdCard、isValidIdCard、isEmail、isUrl等方法 ([e68e8f5](https://github.com/chenym1992/toolsbox/commit/e68e8f5e8534ab2fb042e35b3313236a43ef2aa5))
+
 ### [0.0.5](https://github.com/chenym1992/toolsbox/compare/v0.0.4...v0.0.5) (2022-08-15)
 
 ### [0.0.4](https://github.com/chenym1992/toolsbox/compare/v0.0.3...v0.0.4) (2022-08-15)
