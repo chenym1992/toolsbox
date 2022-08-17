@@ -1,4 +1,12 @@
 # fe-toolsbox
+### [0.0.7](https://github.com/chenym1992/toolsbox/compare/v0.0.6...v0.0.7) (2022-08-17)
+
+
+### Features
+
+* **network.ts:** add is https、isHttp、isOnline ([05afe00](https://github.com/chenym1992/toolsbox/commit/05afe007dbd987bebbd9c372d8cdd1470117526f))
+* **random.ts:** add randomNumber、randomUID ([54d97a7](https://github.com/chenym1992/toolsbox/commit/54d97a71ddf73914381e13bbb169ac266fb29a31))
+
 ### [0.0.6](https://github.com/chenym1992/toolsbox/compare/v0.0.5...v0.0.6) (2022-08-16)
 
 
