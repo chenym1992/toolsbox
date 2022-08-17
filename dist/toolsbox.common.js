@@ -1,11 +1,99 @@
 /*!
- * Toolsbox.js v0.0.7
+ * Toolsbox.js v0.0.8
  * (c) 2014-2022 chenym1992
  * Released under the MIT License.
  */
 'use strict'
 
 Object.defineProperty(exports, '__esModule', { value: true })
+
+/**
+ * 数组求和
+ * @param array
+ * @returns
+ *
+ * @example
+ * sum([1,2,3,4])
+ * // => 10
+ */
+function sum(array) {
+  return array.reduce(function (pre, cur) {
+    return pre + cur
+  })
+}
+/**
+ * 数组求平均数
+ * @param array
+ * @returns
+ */
+
+function average(array) {
+  return sum(array) / array.length
+}
+/**
+ * 数组去重
+ * @param array
+ * @returns
+ *
+ * @example
+ * uniq([2,1,3,3])
+ * // => [2,1,3]
+ */
+
+function uniq(array) {
+  return Array.from(new Set(array))
+}
+
+/**
+ * 是否存在指定class
+ * @param className
+ * @param el
+ * @returns
+ *
+ * @example
+ * //<span class='test'></span>
+ * hasClass('test',document.querySelector('span'))
+ * // => true
+ */
+function hasClass(className, el) {
+  return el.classList.contains(className)
+}
+/**
+ * 添加class
+ * @param className
+ * @param el
+ *
+ * @example
+ * //<span></span>
+ * addClass('test',document.querySelector('span'))
+ * => <span class='test'></span>
+ * addClass('test test2',document.querySelector('span'))
+ * => <span class='test test2'></span>
+ */
+
+function addClass(className, el) {
+  if (/\s+/.test(className)) {
+    el.className += ' ' + className
+  } else {
+    el.classList.add(className)
+  }
+}
+/**
+ * 切换class
+ * @param className
+ * @param el
+ *
+ * @example
+ * //<span class='test'></span>
+ * toggleClass('test',document.querySelector('span'))
+ * //=> <span></span>
+ * toggleClass('test',document.querySelector('span'))
+ * //<span class='test'></span>
+ */
+
+function toggleClass(className, el) {
+  el.classList.toggle(className)
+}
 
 /**
  * 字节数组转字符串
@@ -1359,12 +1447,15 @@ function stringifyQueryString(obj) {
 }
 
 exports.EventEmitter = EventEmitter
+exports.addClass = addClass
+exports.average = average
 exports.byteToString = byteToString
 exports.checkPwdStrength = checkPwdStrength
 exports.classof = classof
 exports.dateFormat = dateFormat
 exports.debounce = debounce
 exports.getUrlParams = getUrlParams
+exports.hasClass = hasClass
 exports.hexToRgb = hexToRgb
 exports.hexToRgba = hexToRgba
 exports.isArray = isArray
@@ -1407,4 +1498,7 @@ exports.rgbToHex = rgbToHex
 exports.rgbaToHex = rgbaToHex
 exports.stringToByte = stringToByte
 exports.stringifyQueryString = stringifyQueryString
+exports.sum = sum
 exports.throttle = throttle
+exports.toggleClass = toggleClass
+exports.uniq = uniq

@@ -1,4 +1,70 @@
 /**
+ * 数组求和
+ * @param array
+ * @returns
+ *
+ * @example
+ * sum([1,2,3,4])
+ * // => 10
+ */
+declare function sum(array: number[]): number
+/**
+ * 数组求平均数
+ * @param array
+ * @returns
+ */
+declare function average(array: number[]): number
+/**
+ * 数组去重
+ * @param array
+ * @returns
+ *
+ * @example
+ * uniq([2,1,3,3])
+ * // => [2,1,3]
+ */
+declare function uniq(array: Iterable<unknown> | null | undefined): unknown[]
+
+/**
+ * 是否存在指定class
+ * @param className
+ * @param el
+ * @returns
+ *
+ * @example
+ * //<span class='test'></span>
+ * hasClass('test',document.querySelector('span'))
+ * // => true
+ */
+declare function hasClass(className: string, el: HTMLElement): boolean
+/**
+ * 添加class
+ * @param className
+ * @param el
+ *
+ * @example
+ * //<span></span>
+ * addClass('test',document.querySelector('span'))
+ * => <span class='test'></span>
+ * addClass('test test2',document.querySelector('span'))
+ * => <span class='test test2'></span>
+ */
+declare function addClass(className: string, el: HTMLElement): void
+/**
+ * 切换class
+ * @param className
+ * @param el
+ *
+ * @example
+ * //<span class='test'></span>
+ * toggleClass('test',document.querySelector('span'))
+ * //=> <span></span>
+ * toggleClass('test',document.querySelector('span'))
+ * //<span class='test'></span>
+ */
+declare function toggleClass(className: string, el: HTMLElement): void
+
+/**
  * 字节数组转字符串
  * @param arr
  * @returns
@@ -537,12 +603,15 @@ declare function isNil(obj: any): boolean
 
 export {
   EventEmitter,
+  addClass,
+  average,
   byteToString,
   checkPwdStrength,
   classof,
   dateFormat,
   debounce,
   getUrlParams,
+  hasClass,
   hexToRgb,
   hexToRgba,
   isArray,
@@ -585,5 +654,8 @@ export {
   rgbaToHex,
   stringToByte,
   stringifyQueryString,
-  throttle
+  sum,
+  throttle,
+  toggleClass,
+  uniq
 }

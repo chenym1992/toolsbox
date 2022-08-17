@@ -1,8 +1,96 @@
 /*!
- * Toolsbox.js v0.0.7
+ * Toolsbox.js v0.0.8
  * (c) 2014-2022 chenym1992
  * Released under the MIT License.
  */
+/**
+ * 数组求和
+ * @param array
+ * @returns
+ *
+ * @example
+ * sum([1,2,3,4])
+ * // => 10
+ */
+function sum(array) {
+  return array.reduce(function (pre, cur) {
+    return pre + cur
+  })
+}
+/**
+ * 数组求平均数
+ * @param array
+ * @returns
+ */
+
+function average(array) {
+  return sum(array) / array.length
+}
+/**
+ * 数组去重
+ * @param array
+ * @returns
+ *
+ * @example
+ * uniq([2,1,3,3])
+ * // => [2,1,3]
+ */
+
+function uniq(array) {
+  return Array.from(new Set(array))
+}
+
+/**
+ * 是否存在指定class
+ * @param className
+ * @param el
+ * @returns
+ *
+ * @example
+ * //<span class='test'></span>
+ * hasClass('test',document.querySelector('span'))
+ * // => true
+ */
+function hasClass(className, el) {
+  return el.classList.contains(className)
+}
+/**
+ * 添加class
+ * @param className
+ * @param el
+ *
+ * @example
+ * //<span></span>
+ * addClass('test',document.querySelector('span'))
+ * => <span class='test'></span>
+ * addClass('test test2',document.querySelector('span'))
+ * => <span class='test test2'></span>
+ */
+
+function addClass(className, el) {
+  if (/\s+/.test(className)) {
+    el.className += ' ' + className
+  } else {
+    el.classList.add(className)
+  }
+}
+/**
+ * 切换class
+ * @param className
+ * @param el
+ *
+ * @example
+ * //<span class='test'></span>
+ * toggleClass('test',document.querySelector('span'))
+ * //=> <span></span>
+ * toggleClass('test',document.querySelector('span'))
+ * //<span class='test'></span>
+ */
+
+function toggleClass(className, el) {
+  el.classList.toggle(className)
+}
+
 /**
  * 字节数组转字符串
  * @param arr
@@ -1356,12 +1444,15 @@ function stringifyQueryString(obj) {
 
 export {
   EventEmitter,
+  addClass,
+  average,
   byteToString,
   checkPwdStrength,
   classof,
   dateFormat,
   debounce,
   getUrlParams,
+  hasClass,
   hexToRgb,
   hexToRgba,
   isArray,
@@ -1404,5 +1495,8 @@ export {
   rgbaToHex,
   stringToByte,
   stringifyQueryString,
-  throttle
+  sum,
+  throttle,
+  toggleClass,
+  uniq
 }
