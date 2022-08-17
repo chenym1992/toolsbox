@@ -6,6 +6,31 @@
 
 > 目的：高效率完成前端业务代码
 
+## 安装 :wrench:
+使用 npm、yarn、pnpm 安装
+
+```shell
+npm i fe-toolsbox -D
+yarn add fe-toolsbox -D
+pnpm add fe-toolsbox -D
+```
+
+## 快速上手:key:
+
+```js
+import { randomNumber, randomUID } from "fe-toolsbox";
+randomNumber();
+// 11 [0-100]
+randomNumber(0,1);
+// 0 | 1
+randomUID()
+//'9f235a5f-27e8-4e72-a854-f5b1fd027427'
+```
+
+## npm 链接:link:
+
+[fe-toolsbox](https://www.npmjs.com/package/fe-toolsbox)
+
 ## API 文档:package:
 
 ### functions
@@ -20,6 +45,13 @@
   - [hexToRgba](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L33) 颜色 hex 转 Rgba
   - [rgbToHex](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L59) 颜色 rgb 转 hex
   - [rgbaToHex](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L83) 颜色 rgba 转 hex
+- [random](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts) 转换颜色格式
+  - [randomNumber](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L9) 生成随机数,默认0-100
+  - [randomUID](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L18) 随机生成一个UID
+- [network](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts) 转换颜色格式
+  - [isHttps](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L6) 判断https
+  - [isHttp](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L16) 判断http
+  - [isOnline](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L25) 判断网络状态
 
 ### regexp
 
