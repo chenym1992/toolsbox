@@ -9,6 +9,7 @@ export default defineConfig({
     ],
 
     footer: {
+      message: 'fe-toolsbox 前端业务常用工具库',
       copyright:
         'Copyright © 2022-present chenym1992 & fe-toolsbox Contributors'
     },
