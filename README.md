@@ -1,6 +1,6 @@
 # fe-toolsbox
 
-[![npm version](https://img.shields.io/static/v1?label=npm&message=v0.0.8&color=blue)](https://www.npmjs.com/package/fe-toolsbox) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://github.com/chenym1992/toolsbox/blob/main/LICENSE)
+[![npm version](https://img.shields.io/static/v1?label=npm&message=v0.0.9&color=blue)](https://www.npmjs.com/package/fe-toolsbox) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://github.com/chenym1992/toolsbox/blob/main/LICENSE)
 
 前端业务常用工具库
 
@@ -32,6 +32,13 @@ randomUID()
 [fe-toolsbox](https://www.npmjs.com/package/fe-toolsbox)
 
 ## API 文档:package:
+
+### array
+
+- [array](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts) 数组
+  - [sum](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts#L10) 数组求和
+  - [average](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts#L21) 数组求平均数
+  - [uniq](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts#L21) 数组去重
 
 ### functions
 
