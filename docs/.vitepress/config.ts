@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: `fe-toolsbox`,
+  base: '/toolsbox/',
   themeConfig: {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/chenym1992/toolsbox' }
