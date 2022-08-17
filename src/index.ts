@@ -1,3 +1,4 @@
+export * from './array'
 export * from './funtions'
 export * from './regexp'
 export * from './time'
