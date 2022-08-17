@@ -15,7 +15,10 @@
     "test": "jest",
     "format": "prettier --write --parser typescript \"(src|test|packages|types)/**/*.ts\"",
     "prepare": "husky install",
-    "release": "node scripts/build.js"
+    "release": "node scripts/build.js",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "lint-staged": {
     "*.js": [
@@ -63,6 +66,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "shelljs": "^0.8.5",
     "standard-version": "^9.5.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "vitepress": "1.0.0-alpha.5",
+    "vue": "^3.2.37"
   }
 }
