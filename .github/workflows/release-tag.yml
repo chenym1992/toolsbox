@@ -45,6 +45,6 @@ jobs:
           release_name: Release ${{ github.ref }}
           body-file: ''
           body: |
-            Please refer to [CHANGELOG.md](https://github.com/chenym1992/toolsbox/blob/master/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](https://github.com/chenym1992/toolsbox/blob/main/CHANGELOG.md) for details.
           draft: false
           prerelease: false
