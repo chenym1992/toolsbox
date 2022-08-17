@@ -1,4 +1,5 @@
 export * from './array'
+export * from './dom'
 export * from './funtions'
 export * from './regexp'
 export * from './time'
