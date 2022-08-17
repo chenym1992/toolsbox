@@ -141,6 +141,38 @@ declare function rgbaToHex(
 ): string | undefined
 
 /**
+ * 判断https
+ * @param url
+ * @returns
+ */
+declare function isHttps(url?: string): boolean
+/**
+ * 判断http
+ * @param url
+ * @returns
+ */
+declare function isHttp(url?: string): boolean
+/**
+ * 判断网络状态
+ * @returns
+ */
+declare function isOnline(): boolean
+
+/**
+ * 生成随机数,默认0-100
+ * @param min 最小数
+ * @param max 最大数
+ * @returns
+ */
+declare function randomNumber(min?: number, max?: number): number
+/**
+ * 随机生成一个UID
+ * @param size : number;
+ * @returns
+ */
+declare function randomUID(size?: number): string
+
+/**
  * 判断hex颜色表达式
  * @param color : string;
  * @returns
@@ -525,6 +557,8 @@ export {
   isEnglish,
   isFunction,
   isHexColor,
+  isHttp,
+  isHttps,
   isIdCard,
   isIphoneNumber,
   isNaN,
@@ -533,6 +567,7 @@ export {
   isNumber,
   isNumberPlate,
   isObject,
+  isOnline,
   isRegExp,
   isRgbColor,
   isRgbaColor,
@@ -544,6 +579,8 @@ export {
   isUrl,
   isValidIdCard,
   makeDurationPretty,
+  randomNumber,
+  randomUID,
   rgbToHex,
   rgbaToHex,
   stringToByte,

@@ -1,5 +1,5 @@
 /*!
- * Toolsbox.js v0.0.5
+ * Toolsbox.js v0.0.6
  * (c) 2014-2022 chenym1992
  * Released under the MIT License.
  */
@@ -811,6 +811,74 @@ function rgbaToHex(rgba) {
 }
 
 /**
+ * 判断https
+ * @param url
+ * @returns
+ */
+function isHttps(url) {
+  url = url || location.href
+  return url.indexOf('https://') === 0
+}
+/**
+ * 判断http
+ * @param url
+ * @returns
+ */
+
+function isHttp(url) {
+  url = url || location.href
+  return url.indexOf('http://') === 0
+}
+/**
+ * 判断网络状态
+ * @returns
+ */
+
+function isOnline() {
+  return navigator.onLine
+}
+
+/**
+ * 生成随机数,默认0-100
+ * @param min 最小数
+ * @param max 最大数
+ * @returns
+ */
+
+function randomNumber() {
+  var min =
+    arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0
+  var max =
+    arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100
+  return Math.floor(min + Math.random() * (max + 1 - min))
+}
+/**
+ * 随机生成一个UID
+ * @param size : number;
+ * @returns
+ */
+
+function randomUID() {
+  var size =
+    arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 21
+
+  if (isHttps() && 'randomUUID' in crypto) {
+    return crypto.randomUUID()
+  }
+
+  return crypto.getRandomValues(new Uint8Array(size)).reduce(function (t, e) {
+    return (t +=
+      (e &= 63) < 36
+        ? e.toString(36)
+        : e < 62
+        ? (e - 26).toString(36).toUpperCase()
+        : e > 62
+        ? '-'
+        : '_')
+  }, '')
+}
+
+/**
  * 宽松判断国内手机号
  * @param string
  * @returns
@@ -1308,6 +1376,8 @@ export {
   isEnglish,
   isFunction,
   isHexColor,
+  isHttp,
+  isHttps,
   isIdCard,
   isIphoneNumber,
   isNaN,
@@ -1316,6 +1386,7 @@ export {
   isNumber,
   isNumberPlate,
   isObject,
+  isOnline,
   isRegExp,
   isRgbColor,
   isRgbaColor,
@@ -1327,6 +1398,8 @@ export {
   isUrl,
   isValidIdCard,
   makeDurationPretty,
+  randomNumber,
+  randomUID,
   rgbToHex,
   rgbaToHex,
   stringToByte,
