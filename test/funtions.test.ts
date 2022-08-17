@@ -4,6 +4,10 @@ import {
   EventEmitter,
   hexToRgb,
   hexToRgba,
+  isHttp,
+  isHttps,
+  randomNumber,
+  randomUID,
   rgbaToHex,
   rgbToHex,
   stringToByte,
@@ -70,5 +74,10 @@ describe('【Funtions Api】', () => {
     expect(rgbaToHex('rgba(0,0,15,0.1)')).toBe('#00000F19')
     expect(rgbaToHex('rgba(0,0,15,11)')).toBe('#00000F')
     expect(rgbaToHex('rgba(0,0,15,1)')).toBe('#00000F')
+  })
+
+  test('#7  network', () => {
+    expect(isHttps('https://test.com')).toBeTruthy()
+    expect(isHttp('http://test.com')).toBeTruthy()
   })
 })
