@@ -38,7 +38,14 @@ randomUID()
 - [array](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts) 数组
   - [sum](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts#L10) 数组求和
   - [average](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts#L21) 数组求平均数
-  - [uniq](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts#L21) 数组去重
+  - [uniq](https://github.com/chenym1992/toolsbox/blob/main/src/array/index.ts#L34) 数组去重
+
+### dom
+
+- [class](https://github.com/chenym1992/toolsbox/blob/main/src/dom/class.ts) dom class
+  - [hasClass](https://github.com/chenym1992/toolsbox/blob/main/src/dom/class.ts#L12) 是否存在指定class
+  - [addClass](https://github.com/chenym1992/toolsbox/blob/main/src/dom/class.ts#L28) 添加class
+  - [toggleClass](https://github.com/chenym1992/toolsbox/blob/main/src/dom/class.ts#L48) 切换class
 
 ### functions
 
