@@ -1,6 +1,6 @@
 {
   "name": "fe-toolsbox",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "packageManager": "pnpm@7.9.0",
   "description": "前端业务常用工具库",
   "main": "dist/toolsbox.common.js",

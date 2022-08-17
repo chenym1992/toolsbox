@@ -1,4 +1,13 @@
 # fe-toolsbox
+### [0.0.9](https://github.com/chenym1992/toolsbox/compare/v0.0.8...v0.0.9) (2022-08-17)
+
+
+### Features
+
+* **array.ts:** sum、average ([5bb22a8](https://github.com/chenym1992/toolsbox/commit/5bb22a8a1737410bd52a402879161fa1e05a13db))
+* **array.ts:** uniq ([3364715](https://github.com/chenym1992/toolsbox/commit/33647152def01ad7f882eca7994132b04ad438db))
+* **dom:** hasClass、addClass、toggleClass ([4e39bf0](https://github.com/chenym1992/toolsbox/commit/4e39bf0c73105b52f36502d5726eee1ca9697634))
+
 ### [0.0.8](https://github.com/chenym1992/toolsbox/compare/v0.0.7...v0.0.8) (2022-08-17)
 
 ### [0.0.7](https://github.com/chenym1992/toolsbox/compare/v0.0.6...v0.0.7) (2022-08-17)
