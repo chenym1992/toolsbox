@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue'
-import { byteToString,stringToByte,throttle,debounce } from '../../src'
+import { byteToString,stringToByte,throttle,debounce,EventEmitter,hexToRgb,hexToRgba,rgbToHex,rgbaToHex } from '../../src'
 const count = ref(0)
 const throttleFn = throttle(() => {
   count.value++
@@ -9,6 +9,22 @@ const throttleFn = throttle(() => {
 const debounceFn = debounce(() => {
   count.value++
 }, 1000)
+
+const $bus = new EventEmitter()
+
+$bus.once('click', (res) =>{
+  alert(`1: ${res}`)
+})
+
+$bus.on({
+  click: (res) => {
+    alert(`2: ${res}`)
+  }
+})
+
+const click1 = ()=>{
+  $bus.emit('click','123')
+}
 </script>
 
 # funtions
@@ -84,11 +100,83 @@ const debounceFn = debounce(() => {
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/eventEmitter.ts)
 
-- [convertColors](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts) 转换颜色格式
-  - [hexToRgb](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L12) 颜色 hex 转 Rgb
-  - [hexToRgba](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L33) 颜色 hex 转 Rgba
-  - [rgbToHex](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L59) 颜色 rgb 转 hex
-  - [rgbaToHex](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L83) 颜色 rgba 转 hex
+```js
+import { EventEmitter } from 'fe-toolsbox'
+const $bus = new EventEmitter()
+$bus.once('click', (res) =>{
+  alert(`1: ${res}`)
+})
+$bus.on({
+  click: (res) => {
+    alert(`2: ${res}`)
+  }
+})
+const click1 = ()=>{
+  $bus.emit('click','123')
+}
+```
+```vue-html
+<div class="demo">
+  <button @click="click1">点击查看效果</button>
+</div>
+```
+<div class="demo">
+  <button @click="click1">点击查看效果</button>
+</div>
+
+## convertColors 转换颜色格式
+### hexToRgb 颜色 hex 转 Rgb
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L12)
+
+```js
+import { hexToRgb } from 'fe-toolsbox'
+hexToRgb('#000000')
+```
+<div class="demo">
+  {{hexToRgb('#000000')}}
+</div>
+
+### hexToRgba  颜色 hex 转 Rgba
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L33)
+
+```js
+import { hexToRgba } from 'fe-toolsbox'
+hexToRgba('#000000')
+```
+<div class="demo">
+  {{hexToRgba('#000000')}}
+</div>
+
+### rgbToHex  颜色 rgb 转 hex
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L59)
+
+```js
+import { rgbToHex } from 'fe-toolsbox'
+rgbToHex('rgb(255,255,124)')
+rgbToHex('rgb(255,255,124)',false)
+```
+<div class="demo">
+  {{rgbToHex('rgb(255,255,124)')}}
+  {{rgbToHex('rgb(255,255,124)',false)}}
+</div>
+
+### rgbaToHex  颜色 rgba 转 hex
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L83)
+
+```js
+import { rgbaToHex } from 'fe-toolsbox'
+rgbaToHex('rgba(255,255,124,0.1)')
+rgbaToHex('rgba(255,255,124,0.2)',false)
+```
+<div class="demo">
+  {{rgbaToHex('rgba(255,255,124,0.1)')}}
+  {{rgbaToHex('rgba(255,255,124,0.2)',false)}}
+</div>
+
 - [random](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts) 随机
   - [randomNumber](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L9) 生成随机数,默认 0-100
   - [randomUID](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L18) 随机生成一个 UID
