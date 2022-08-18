@@ -48,3 +48,12 @@ export function addClass(className: string, el: HTMLElement) {
 export function toggleClass(className: string, el: HTMLElement) {
   el.classList.toggle(className)
 }
+
+/**
+ * 删除指定class
+ * @param className
+ * @param el
+ */
+export function removeClass(className: string, el: HTMLElement) {
+  el.className = el.className.replace(className, '')
+}

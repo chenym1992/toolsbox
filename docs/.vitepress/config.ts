@@ -5,15 +5,6 @@ export default defineConfig({
   title: `fe-toolsbox`,
   base: '/toolsbox/',
   lastUpdated: true,
-  head: [
-    [
-      'link',
-      {
-        href: '/toolsbox/theme.css',
-        rel: 'stylesheet'
-      }
-    ]
-  ],
   themeConfig: {
     socialLinks: [
       { icon: 'github', link: 'https://github.com/chenym1992/toolsbox' }

@@ -6,8 +6,6 @@ import {
   hexToRgba,
   isHttp,
   isHttps,
-  randomNumber,
-  randomUID,
   rgbaToHex,
   rgbToHex,
   stringToByte,
