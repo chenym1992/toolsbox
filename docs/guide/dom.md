@@ -1,8 +1,8 @@
 <script setup>
 import {onMounted,ref} from 'vue'
 import { isFullScreen,isFullScreenEnabled, enterFullscreen, exitFullscreen, hasClass,addClass,toggleClass,removeClass } from '../../src'
-const bool1 = isFullScreen()
-const bool2 = isFullScreenEnabled()
+const bool1 = ref(false)
+const bool2 = ref(false)
 const bool3 = ref(false)
 const click1 = ()=>{enterFullscreen()}
 const click2 = ()=>{exitFullscreen()}
@@ -10,6 +10,8 @@ const click3 = ()=>{addClass('blue',document.querySelector('#demo02'))}
 const click4 = ()=>{removeClass('blue',document.querySelector('#demo02'))}
 const click5 = ()=>{toggleClass('orange',document.querySelector('#demo03'))}
 onMounted(() => {
+  bool1.value  = isFullScreen()
+  bool2.value  = isFullScreenEnabled()
   bool3.value =  hasClass('red', document.querySelector('#demo01'))
 })
 </script>
