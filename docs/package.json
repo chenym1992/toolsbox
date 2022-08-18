@@ -1,0 +1,6 @@
+{
+  "private":true,
+  "dependencies": {
+    "fe-toolsbox": "workspace:*"
+  }
+}

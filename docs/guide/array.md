@@ -1,5 +1,5 @@
 <script setup>
-  import { sum,average,uniq } from '../../src/index'
+  import { sum,average,uniq } from 'fe-toolsbox'
   const array = [1, 2, 3, 4, 5]
 </script>
 

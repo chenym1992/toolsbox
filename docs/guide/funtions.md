@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue'
-import { byteToString,stringToByte,throttle,debounce,EventEmitter,hexToRgb,hexToRgba,rgbToHex,rgbaToHex } from '../../src'
+import { byteToString,stringToByte,throttle,debounce,EventEmitter,hexToRgb,hexToRgba,rgbToHex,rgbaToHex } from 'fe-toolsbox'
 const count = ref(0)
 const throttleFn = throttle(() => {
   count.value++

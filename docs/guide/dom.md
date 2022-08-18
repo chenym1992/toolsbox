@@ -1,6 +1,6 @@
 <script setup>
 import {onMounted,ref} from 'vue'
-import { isFullScreen,isFullScreenEnabled, enterFullscreen, exitFullscreen, hasClass,addClass,toggleClass,removeClass } from '../../src'
+import { isFullScreen,isFullScreenEnabled, enterFullscreen, exitFullscreen, hasClass,addClass,toggleClass,removeClass } from 'fe-toolsbox'
 const bool1 = ref(false)
 const bool2 = ref(false)
 const bool3 = ref(false)
