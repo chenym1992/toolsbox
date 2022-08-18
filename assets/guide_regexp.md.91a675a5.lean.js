@@ -1,0 +1,1 @@
+import{_ as r,o as e,c as t,b as o}from"./app.a8e07d86.js";const x=JSON.parse('{"title":"regexp","description":"","frontmatter":{},"headers":[],"relativePath":"guide/regexp.md","lastUpdated":1660828897000}'),l={name:"guide/regexp.md"},a=o("",2),s=[a];function i(n,b,h,g,c,m){return e(),t("div",null,s)}const f=r(l,[["render",i]]);export{x as __pageData,f as default};
