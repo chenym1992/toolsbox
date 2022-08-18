@@ -63,6 +63,36 @@ declare function addClass(className: string, el: HTMLElement): void
  * //<span class='test'></span>
  */
 declare function toggleClass(className: string, el: HTMLElement): void
+/**
+ * 删除指定class
+ * @param className
+ * @param el
+ */
+declare function removeClass(className: string, el: HTMLElement): void
+
+/**
+ * 是否在全屏状态
+ * @returns
+ */
+declare function isFullScreen(): any
+/**
+ * 是否支持全屏
+ * @returns
+ */
+declare function isFullScreenEnabled(): any
+/**
+ * 进入全屏
+ * @tips MAC、IOS下的Safari浏览器不支持非交互全屏
+ * @param element
+ * @returns
+ */
+declare function enterFullscreen(
+  element?: HTMLElement
+): Promise<never> | undefined
+/**
+ * 退出全屏
+ */
+declare function exitFullscreen(): void
 
 /**
  * 字节数组转字符串
@@ -610,6 +640,8 @@ export {
   classof,
   dateFormat,
   debounce,
+  enterFullscreen,
+  exitFullscreen,
   getUrlParams,
   hasClass,
   hexToRgb,
@@ -624,6 +656,8 @@ export {
   isDate,
   isEmail,
   isEnglish,
+  isFullScreen,
+  isFullScreenEnabled,
   isFunction,
   isHexColor,
   isHttp,
@@ -650,6 +684,7 @@ export {
   makeDurationPretty,
   randomNumber,
   randomUID,
+  removeClass,
   rgbToHex,
   rgbaToHex,
   stringToByte,

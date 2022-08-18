@@ -1,6 +1,6 @@
 # fe-toolsbox
 
-[![npm version](https://img.shields.io/static/v1?label=npm&message=v0.0.9&color=blue)](https://www.npmjs.com/package/fe-toolsbox) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://github.com/chenym1992/toolsbox/blob/main/LICENSE)
+[![npm version](https://img.shields.io/static/v1?label=npm&message=v0.0.10&color=blue)](https://www.npmjs.com/package/fe-toolsbox) [![license](https://img.shields.io/static/v1?label=license&message=MIT&color=green)](https://github.com/chenym1992/toolsbox/blob/main/LICENSE)
 
 前端业务常用工具库
 

@@ -1,5 +1,5 @@
 /*!
- * Toolsbox.js v0.0.8
+ * Toolsbox.js v0.0.9
  * (c) 2014-2022 chenym1992
  * Released under the MIT License.
  */
@@ -93,6 +93,84 @@ function addClass(className, el) {
 
 function toggleClass(className, el) {
   el.classList.toggle(className)
+}
+/**
+ * 删除指定class
+ * @param className
+ * @param el
+ */
+
+function removeClass(className, el) {
+  el.className = el.className.replace(className, '')
+}
+
+/**
+ * 是否在全屏状态
+ * @returns
+ */
+
+function isFullScreen() {
+  return (
+    document.fullscreenElement ||
+    document.webkitFullScreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullScreenElement
+  )
+}
+/**
+ * 是否支持全屏
+ * @returns
+ */
+
+function isFullScreenEnabled() {
+  return (
+    document.fullscreenEnabled ||
+    document.webkitFullscreenEnabled ||
+    document.mozFullScreenEnabled ||
+    document.msFullscreenEnabled
+  )
+}
+/**
+ * 进入全屏
+ * @tips MAC、IOS下的Safari浏览器不支持非交互全屏
+ * @param element
+ * @returns
+ */
+
+function enterFullscreen() {
+  var element =
+    arguments.length > 0 && arguments[0] !== undefined
+      ? arguments[0]
+      : document.body
+
+  if (!isFullScreenEnabled()) {
+    return Promise.reject(new Error('全屏模式被禁用'))
+  }
+
+  if (element.requestFullscreen) {
+    element.requestFullscreen()
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen()
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen()
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullScreen()
+  }
+}
+/**
+ * 退出全屏
+ */
+
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen()
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen()
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen()
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen()
+  }
 }
 
 /**
@@ -1454,6 +1532,8 @@ exports.checkPwdStrength = checkPwdStrength
 exports.classof = classof
 exports.dateFormat = dateFormat
 exports.debounce = debounce
+exports.enterFullscreen = enterFullscreen
+exports.exitFullscreen = exitFullscreen
 exports.getUrlParams = getUrlParams
 exports.hasClass = hasClass
 exports.hexToRgb = hexToRgb
@@ -1468,6 +1548,8 @@ exports.isColor = isColor
 exports.isDate = isDate
 exports.isEmail = isEmail
 exports.isEnglish = isEnglish
+exports.isFullScreen = isFullScreen
+exports.isFullScreenEnabled = isFullScreenEnabled
 exports.isFunction = isFunction
 exports.isHexColor = isHexColor
 exports.isHttp = isHttp
@@ -1494,6 +1576,7 @@ exports.isValidIdCard = isValidIdCard
 exports.makeDurationPretty = makeDurationPretty
 exports.randomNumber = randomNumber
 exports.randomUID = randomUID
+exports.removeClass = removeClass
 exports.rgbToHex = rgbToHex
 exports.rgbaToHex = rgbaToHex
 exports.stringToByte = stringToByte
