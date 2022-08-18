@@ -1,4 +1,11 @@
 # fe-toolsbox
+### [0.0.10](https://github.com/chenym1992/toolsbox/compare/v0.0.9...v0.0.10) (2022-08-18)
+
+
+### Features
+
+* **dom:** isFullScreen、isFullScreenEnabled、enterFullscreen、exitFullscreen ([2f66b89](https://github.com/chenym1992/toolsbox/commit/2f66b895b0b9a9fa1fe3d19439f77628a250b146))
+
 ### [0.0.9](https://github.com/chenym1992/toolsbox/compare/v0.0.8...v0.0.9) (2022-08-17)
 
 
