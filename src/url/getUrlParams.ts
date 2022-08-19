@@ -5,13 +5,13 @@
  * @returns
  * @example
  *
- * getUrlParam('https://example.com?a=1&b=1');
+ * getUrlParams('https://example.com?a=1&b=1');
  * // => {a:'1',b:'1'}
- * getUrlParam('https://example.com?a=1&b=1',a);
+ * getUrlParams('https://example.com?a=1&b=1','a');
  * // => '1'
- * getUrlParam('https://example.com?a=1&b=1&a=2');
+ * getUrlParams('https://example.com?a=1&b=1&a=2');
  * // => {a:['1','2'],b:'1'}
- * getUrlParam('https://example.com?a=1&b=1&a=2',a);
+ * getUrlParams('https://example.com?a=1&b=1&a=2','a');
  * // => ['1','2']
  */
 export function getUrlParams(url?: string, key?: string): any {

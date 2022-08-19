@@ -3,9 +3,15 @@ import { version } from '../../package.json'
 
 export default defineConfig({
   title: `fe-toolsbox`,
+  head: [
+    ['link', { rel: 'icon', href: '/logo.png' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'fe-toolsbox' }]
+  ],
   base: '/toolsbox/',
   lastUpdated: true,
   themeConfig: {
+    logo: '/logo.png',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/chenym1992/toolsbox' }
     ],
@@ -58,7 +64,16 @@ export default defineConfig({
             },
             {
               text: 'regexp',
-              link: '/guide/regexp'
+              items: [
+                {
+                  text: 'color',
+                  link: '/guide/regexp-color'
+                },
+                {
+                  text: 'string',
+                  link: '/guide/regexp-string'
+                }
+              ]
             },
             {
               text: 'time',

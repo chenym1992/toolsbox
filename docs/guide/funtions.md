@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue'
-import { byteToString,stringToByte,throttle,debounce,EventEmitter,hexToRgb,hexToRgba,rgbToHex,rgbaToHex } from 'fe-toolsbox'
+import { byteToString,stringToByte,throttle,debounce,EventEmitter,hexToRgb,hexToRgba,rgbToHex,rgbaToHex, randomUID,randomNumber,isHttps,isHttp,isOnline } from 'fe-toolsbox'
 const count = ref(0)
 const throttleFn = throttle(() => {
   count.value++
@@ -61,7 +61,7 @@ stringToByte(string)
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/throttle.ts) 节流函数
 
-```js
+```ts
 import { throttle } from 'fe-toolsbox'
 const count = ref(0)
 const throttleFn = throttle(() => {
@@ -83,7 +83,7 @@ const throttleFn = throttle(() => {
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/debounce.ts)
 
-```js
+```ts
 import { debounce } from 'fe-toolsbox'
 const count = ref(0)
 const debounceFn = debounce(() => {
@@ -100,7 +100,7 @@ const debounceFn = debounce(() => {
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/eventEmitter.ts)
 
-```js
+```ts
 import { EventEmitter } from 'fe-toolsbox'
 const $bus = new EventEmitter()
 $bus.once('click', (res) =>{
@@ -129,7 +129,7 @@ const click1 = ()=>{
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L12)
 
-```js
+```ts
 import { hexToRgb } from 'fe-toolsbox'
 hexToRgb('#000000')
 ```
@@ -141,7 +141,7 @@ hexToRgb('#000000')
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L33)
 
-```js
+```ts
 import { hexToRgba } from 'fe-toolsbox'
 hexToRgba('#000000')
 ```
@@ -153,7 +153,7 @@ hexToRgba('#000000')
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L59)
 
-```js
+```ts
 import { rgbToHex } from 'fe-toolsbox'
 rgbToHex('rgb(255,255,124)')
 rgbToHex('rgb(255,255,124)',false)
@@ -167,7 +167,7 @@ rgbToHex('rgb(255,255,124)',false)
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L83)
 
-```js
+```ts
 import { rgbaToHex } from 'fe-toolsbox'
 rgbaToHex('rgba(255,255,124,0.1)')
 rgbaToHex('rgba(255,255,124,0.2)',false)
@@ -177,10 +177,68 @@ rgbaToHex('rgba(255,255,124,0.2)',false)
   {{rgbaToHex('rgba(255,255,124,0.2)',false)}}
 </div>
 
-- [random](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts) 随机
-  - [randomNumber](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L9) 生成随机数,默认 0-100
-  - [randomUID](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L18) 随机生成一个 UID
-- [network](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts) 转换颜色格式
-  - [isHttps](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L6) 判断 https
-  - [isHttp](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L16) 判断 http
-  - [isOnline](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L25) 判断网络状态
+## random 随机
+
+###  randomNumber 生成随机数,默认 0-100
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L9)
+
+```ts
+import { randomNumber } from 'fe-toolsbox'
+randomNumber()
+randomNumber(0,1)
+```
+<div class="demo">
+  {{randomNumber()}}  
+  {{randomNumber(0,1)}}
+</div>
+
+###  randomUID 随机生成一个 UID
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L18)
+
+```ts
+import { randomUID } from 'fe-toolsbox'
+randomUID()
+```
+<div class="demo">
+  {{randomUID()}}
+</div>
+
+## network 网络
+
+### isHttps 判断 https
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L6)
+
+```ts
+import { isHttps } from 'fe-toolsbox'
+isHttps()
+```
+<div class="demo">
+  {{isHttps()}}
+</div>
+
+### isHttp 判断 http
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L16)
+
+```ts
+import { isHttp } from 'fe-toolsbox'
+isHttp()
+```
+<div class="demo">
+  {{isHttp()}}
+</div>
+
+### isOnline 判断网络状态
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/network.ts#L25)
+
+```ts
+import { isOnline } from 'fe-toolsbox'
+isOnline()
+```
+<div class="demo">
+  {{isOnline()}}
+</div>

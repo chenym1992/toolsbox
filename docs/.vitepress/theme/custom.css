@@ -25,3 +25,7 @@
   font-size: 0.9em;
   font-weight: 600;
 }
+.demo input {
+  border:1px solid #646cff;
+  padding: 0 8px;
+}
