@@ -1,7 +1,18 @@
 <script setup>
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 import { byteToString,stringToByte,throttle,debounce,EventEmitter,hexToRgb,hexToRgba,rgbToHex,rgbaToHex, randomUID,randomNumber,isHttps,isHttp,isOnline } from 'fe-toolsbox'
 const count = ref(0)
+const isHttpsBool = ref(false)
+const isHttpBool = ref(false)
+const isOnlineBool = ref(false)
+const uuid = ref()
+
+onMounted(()=>{
+  isHttpsBool.value = isHttps()
+  isHttpBool.value = isHttp()
+  isOnlineBool.value = isOnline()
+  uuid.value = randomUID()
+})
 const throttleFn = throttle(() => {
   count.value++
 }, 1000)
@@ -202,7 +213,7 @@ import { randomUID } from 'fe-toolsbox'
 randomUID()
 ```
 <div class="demo">
-  {{randomUID()}}
+  {{uuid}}
 </div>
 
 ## network 网络
@@ -216,7 +227,7 @@ import { isHttps } from 'fe-toolsbox'
 isHttps()
 ```
 <div class="demo">
-  {{isHttps()}}
+  {{isHttpsBool}}
 </div>
 
 ### isHttp 判断 http
@@ -228,7 +239,7 @@ import { isHttp } from 'fe-toolsbox'
 isHttp()
 ```
 <div class="demo">
-  {{isHttp()}}
+  {{isHttpBool}}
 </div>
 
 ### isOnline 判断网络状态
@@ -240,5 +251,5 @@ import { isOnline } from 'fe-toolsbox'
 isOnline()
 ```
 <div class="demo">
-  {{isOnline()}}
+  {{isOnlineBool}}
 </div>
