@@ -34,3 +34,5 @@ export function average(array: number[]) {
 export function uniq(array: Iterable<unknown> | null | undefined) {
   return Array.from(new Set(array))
 }
+
+export * from './arrayToTree'

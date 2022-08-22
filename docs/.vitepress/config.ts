@@ -4,7 +4,7 @@ import { version } from '../../package.json'
 export default defineConfig({
   title: `fe-toolsbox`,
   head: [
-    ['link', { rel: 'icon', href: '/logo.png' }],
+    ['link', { rel: 'icon', href: '/toolsbox/logo.png' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'fe-toolsbox' }]
   ],
@@ -24,7 +24,7 @@ export default defineConfig({
 
     nav: [
       { text: '使用指南', link: '/guide/', activeMatch: '/guide/' },
-      { text: 'API文档', link: '/guide/array', activeMatch: '/guide/' },
+      { text: 'API文档', link: '/guide/', activeMatch: '/guide/' },
       {
         text: version,
         items: [
@@ -52,7 +52,16 @@ export default defineConfig({
           items: [
             {
               text: 'array',
-              link: '/guide/array'
+              items: [
+                {
+                  text: 'index',
+                  link: '/guide/array'
+                },
+                {
+                  text: 'arrayToTree',
+                  link: '/guide/array-to-tree'
+                }
+              ]
             },
             {
               text: 'dom',

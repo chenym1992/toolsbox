@@ -15,9 +15,9 @@ const array = [1, 2, 3, 4, 5]
 sum(array)
 ```
 
-::: info 输出
+<div class="demo">
 {{sum(array)}}
-:::
+</div>
 
 ## average 数组求平均数
 
@@ -29,9 +29,9 @@ const array = [1, 2, 3, 4, 5]
 average(array)
 ```
 
-::: info 输出
+<div class="demo">
 {{average(array)}}
-:::
+</div>
 
 ## uniq 数组去重
 
@@ -42,6 +42,7 @@ import { uniq } from 'fe-toolsbox'
 const array = [1, 2, 2, 3, 3, 4, 5]
 uniq(array)
 ```
-::: info 输出
+
+<div class="demo">
 {{uniq([1, 2, 2, 3, 3, 4, 5])}}
-:::
+</div>
