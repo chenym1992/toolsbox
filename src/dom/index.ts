@@ -61,3 +61,47 @@ export function exitFullscreen() {
     ;(document as any).webkitExitFullscreen()
   }
 }
+
+/**
+ * 创建dom
+ * @param el
+ * @param tpl
+ * @param attrs
+ * @param cname
+ * @returns
+ */
+export function createDom(el = 'div', tpl = '', attrs = {}, cname = '') {
+  let dom = document.createElement(el)
+  dom.className = cname
+  dom.innerHTML = tpl
+  Object.keys(attrs).forEach(item => {
+    let key = item
+    let value = attrs[item]
+    if (el === 'video' || el === 'audio') {
+      if (value) {
+        dom.setAttribute(key, value)
+      }
+    } else {
+      dom.setAttribute(key, value)
+    }
+  })
+  return dom
+}
+
+/**
+ * 查找dom
+ * @param el
+ * @param selector
+ * @returns
+ */
+export function findDom(el = document, selector: string) {
+  let dom
+  try {
+    dom = el.querySelector(selector)
+  } catch (e) {
+    if (selector.indexOf('#') === 0) {
+      dom = el.getElementById(selector.slice(1))
+    }
+  }
+  return dom
+}
