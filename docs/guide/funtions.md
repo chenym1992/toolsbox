@@ -13,11 +13,13 @@ const copyFrom = {
   d: [1, 2, 3, 4, 5, 6, 7, 8, 9],
   f: { name: 'WebKit', version: '537.36' }
 }
+const copied = ref()
 onMounted(()=>{
   isHttpsBool.value = isHttps()
   isHttpBool.value = isHttp()
   isOnlineBool.value = isOnline()
   uuid.value = randomUID()
+  copied.value = deepCopy({}, copyFrom)
 })
 const throttleFn = throttle(() => {
   count.value++
@@ -63,7 +65,7 @@ deepCopy({}, copyFrom)
 ```
 
 <div class="demo">
-  {{deepCopy({}, copyFrom)}}
+  {{copied}}
 </div>
 
 ## byteToString 字节数组转字符串
