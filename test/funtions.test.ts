@@ -1,6 +1,7 @@
 import {
   byteToString,
   debounce,
+  deepCopy,
   EventEmitter,
   hexToRgb,
   hexToRgba,
@@ -77,5 +78,19 @@ describe('【Funtions Api】', () => {
   test('#7  network', () => {
     expect(isHttps('https://test.com')).toBeTruthy()
     expect(isHttp('http://test.com')).toBeTruthy()
+  })
+
+  test('#8  deepCopy', () => {
+    const orin = {
+      a: 1,
+      b: 2,
+      c: 3,
+      d: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      f: { name: 'WebKit', version: '537.36' },
+      g: function () {
+        return 15
+      }
+    }
+    expect(deepCopy({}, orin)).toEqual(orin)
   })
 })
