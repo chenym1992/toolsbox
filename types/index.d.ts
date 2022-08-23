@@ -1,4 +1,19 @@
 /**
+ * 扁平数据结构转Tree
+ * @param items
+ * @param options
+ * @returns
+ */
+declare function arrayToTree(
+  items: Array<Object>,
+  options?: {
+    id: string
+    pid: string
+    children: string
+  }
+): never[]
+
+/**
  * 数组求和
  * @param array
  * @returns
@@ -93,6 +108,27 @@ declare function enterFullscreen(
  * 退出全屏
  */
 declare function exitFullscreen(): void
+/**
+ * 创建dom
+ * @param el
+ * @param tpl
+ * @param attrs
+ * @param cname
+ * @returns
+ */
+declare function createDom(
+  el?: string,
+  tpl?: string,
+  attrs?: {},
+  cname?: string
+): HTMLElement
+/**
+ * 查找dom
+ * @param el
+ * @param selector
+ * @returns
+ */
+declare function findDom(el: Document | undefined, selector: string): any
 
 /**
  * 字节数组转字符串
@@ -267,6 +303,21 @@ declare function randomNumber(min?: number, max?: number): number
  * @returns
  */
 declare function randomUID(size?: number): string
+
+/**
+ * 判断奇偶性
+ * @param num
+ * @returns
+ */
+declare function isEvenOrOdd(num: number): number
+
+/**
+ * 深拷贝
+ * @param dst
+ * @param src
+ * @returns
+ */
+declare function deepCopy(dst: any, src: any): any
 
 /**
  * 判断hex颜色表达式
@@ -505,13 +556,13 @@ declare function dateFormat(
  * @returns
  * @example
  *
- * getUrlParam('https://example.com?a=1&b=1');
+ * getUrlParams('https://example.com?a=1&b=1');
  * // => {a:'1',b:'1'}
- * getUrlParam('https://example.com?a=1&b=1',a);
+ * getUrlParams('https://example.com?a=1&b=1','a');
  * // => '1'
- * getUrlParam('https://example.com?a=1&b=1&a=2');
+ * getUrlParams('https://example.com?a=1&b=1&a=2');
  * // => {a:['1','2'],b:'1'}
- * getUrlParam('https://example.com?a=1&b=1&a=2',a);
+ * getUrlParams('https://example.com?a=1&b=1&a=2','a');
  * // => ['1','2']
  */
 declare function getUrlParams(url?: string, key?: string): any
@@ -631,17 +682,56 @@ declare function isNaN(obj: any): boolean
  */
 declare function isNil(obj: any): boolean
 
+/**
+ * uaParser
+ * fork from https://github.com/faisalman/ua-parser-js
+ * @copyright @faisalman
+ */
+interface UaInfoInstance {
+  name?: string
+  version?: string
+  major?: number | string
+  architecture?: string
+  vendor?: string
+  model?: string
+  type?: string
+}
+declare class UAParser {
+  [x: string]: string | object
+  constructor(ua?: string)
+  getBrowser: () => UaInfoInstance
+  getCPU: () => UaInfoInstance
+  getDevice: () => UaInfoInstance
+  getEngine: () => UaInfoInstance
+  getOS: () => UaInfoInstance
+  getUA: () => string | object
+  setUA: (ua: string) => void
+  getResult: () => {
+    ua: any
+    browser: any
+    engine: any
+    os: any
+    device: any
+    cpu: any
+  }
+}
+
 export {
   EventEmitter,
+  UAParser,
   addClass,
+  arrayToTree,
   average,
   byteToString,
   checkPwdStrength,
   classof,
+  createDom,
   dateFormat,
   debounce,
+  deepCopy,
   enterFullscreen,
   exitFullscreen,
+  findDom,
   getUrlParams,
   hasClass,
   hexToRgb,
@@ -656,6 +746,7 @@ export {
   isDate,
   isEmail,
   isEnglish,
+  isEvenOrOdd,
   isFullScreen,
   isFullScreenEnabled,
   isFunction,
