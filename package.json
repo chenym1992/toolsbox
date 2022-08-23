@@ -43,7 +43,7 @@
   "bugs": {
     "url": "https://github.com/chenym1992/toolsbox/issues"
   },
-  "homepage": "https://github.com/chenym1992/toolsbox#readme",
+  "homepage": "https://chenym1992.github.io/toolsbox/",
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
