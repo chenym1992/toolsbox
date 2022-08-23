@@ -64,6 +64,15 @@ export default defineConfig({
               ]
             },
             {
+              text: 'device',
+              items: [
+                {
+                  text: 'UAParser',
+                  link: '/guide/device-ua-parser'
+                }
+              ]
+            },
+            {
               text: 'dom',
               link: '/guide/dom'
             },

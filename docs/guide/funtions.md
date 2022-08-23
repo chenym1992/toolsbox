@@ -1,12 +1,18 @@
 <script setup>
 import {ref, onMounted} from 'vue'
-import { byteToString,stringToByte,throttle,debounce,EventEmitter,hexToRgb,hexToRgba,rgbToHex,rgbaToHex, randomUID,randomNumber,isHttps,isHttp,isOnline } from 'fe-toolsbox'
+import { byteToString,stringToByte,throttle,debounce,EventEmitter,hexToRgb,hexToRgba,rgbToHex,rgbaToHex, randomUID,randomNumber,isHttps,isHttp,isOnline, deepCopy } from 'fe-toolsbox'
 const count = ref(0)
 const isHttpsBool = ref(false)
 const isHttpBool = ref(false)
 const isOnlineBool = ref(false)
 const uuid = ref()
-
+const copyFrom = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  f: { name: 'WebKit', version: '537.36' }
+}
 onMounted(()=>{
   isHttpsBool.value = isHttps()
   isHttpBool.value = isHttp()
@@ -39,6 +45,26 @@ const click1 = ()=>{
 </script>
 
 # funtions
+
+## deepCopy 深拷贝
+
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/deepCopy.ts)
+
+```ts
+import { deepCopy } from 'fe-toolsbox'
+const copyFrom = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  f: { name: 'WebKit', version: '537.36' }
+}
+deepCopy({}, copyFrom)
+```
+
+<div class="demo">
+  {{deepCopy({}, copyFrom)}}
+</div>
 
 ## byteToString 字节数组转字符串
 
@@ -114,28 +140,31 @@ const debounceFn = debounce(() => {
 ```ts
 import { EventEmitter } from 'fe-toolsbox'
 const $bus = new EventEmitter()
-$bus.once('click', (res) =>{
+$bus.once('click', res => {
   alert(`1: ${res}`)
 })
 $bus.on({
-  click: (res) => {
+  click: res => {
     alert(`2: ${res}`)
   }
 })
-const click1 = ()=>{
-  $bus.emit('click','123')
+const click1 = () => {
+  $bus.emit('click', '123')
 }
 ```
+
 ```vue-html
 <div class="demo">
   <button @click="click1">点击查看效果</button>
 </div>
 ```
+
 <div class="demo">
   <button @click="click1">点击查看效果</button>
 </div>
 
 ## convertColors 转换颜色格式
+
 ### hexToRgb 颜色 hex 转 Rgb
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L12)
@@ -144,11 +173,12 @@ const click1 = ()=>{
 import { hexToRgb } from 'fe-toolsbox'
 hexToRgb('#000000')
 ```
+
 <div class="demo">
   {{hexToRgb('#000000')}}
 </div>
 
-### hexToRgba  颜色 hex 转 Rgba
+### hexToRgba 颜色 hex 转 Rgba
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L33)
 
@@ -156,33 +186,36 @@ hexToRgb('#000000')
 import { hexToRgba } from 'fe-toolsbox'
 hexToRgba('#000000')
 ```
+
 <div class="demo">
   {{hexToRgba('#000000')}}
 </div>
 
-### rgbToHex  颜色 rgb 转 hex
+### rgbToHex 颜色 rgb 转 hex
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L59)
 
 ```ts
 import { rgbToHex } from 'fe-toolsbox'
 rgbToHex('rgb(255,255,124)')
-rgbToHex('rgb(255,255,124)',false)
+rgbToHex('rgb(255,255,124)', false)
 ```
+
 <div class="demo">
   {{rgbToHex('rgb(255,255,124)')}}
   {{rgbToHex('rgb(255,255,124)',false)}}
 </div>
 
-### rgbaToHex  颜色 rgba 转 hex
+### rgbaToHex 颜色 rgba 转 hex
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/convertColors.ts#L83)
 
 ```ts
 import { rgbaToHex } from 'fe-toolsbox'
 rgbaToHex('rgba(255,255,124,0.1)')
-rgbaToHex('rgba(255,255,124,0.2)',false)
+rgbaToHex('rgba(255,255,124,0.2)', false)
 ```
+
 <div class="demo">
   {{rgbaToHex('rgba(255,255,124,0.1)')}}
   {{rgbaToHex('rgba(255,255,124,0.2)',false)}}
@@ -190,21 +223,22 @@ rgbaToHex('rgba(255,255,124,0.2)',false)
 
 ## random 随机
 
-###  randomNumber 生成随机数,默认 0-100
+### randomNumber 生成随机数,默认 0-100
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L9)
 
 ```ts
 import { randomNumber } from 'fe-toolsbox'
 randomNumber()
-randomNumber(0,1)
+randomNumber(0, 1)
 ```
+
 <div class="demo">
   {{randomNumber()}}  
   {{randomNumber(0,1)}}
 </div>
 
-###  randomUID 随机生成一个 UID
+### randomUID 随机生成一个 UID
 
 [source](https://github.com/chenym1992/toolsbox/blob/main/src/funtions/random.ts#L18)
 
@@ -212,6 +246,7 @@ randomNumber(0,1)
 import { randomUID } from 'fe-toolsbox'
 randomUID()
 ```
+
 <div class="demo">
   {{uuid}}
 </div>
@@ -226,6 +261,7 @@ randomUID()
 import { isHttps } from 'fe-toolsbox'
 isHttps()
 ```
+
 <div class="demo">
   {{isHttpsBool}}
 </div>
@@ -238,6 +274,7 @@ isHttps()
 import { isHttp } from 'fe-toolsbox'
 isHttp()
 ```
+
 <div class="demo">
   {{isHttpBool}}
 </div>
@@ -250,6 +287,7 @@ isHttp()
 import { isOnline } from 'fe-toolsbox'
 isOnline()
 ```
+
 <div class="demo">
   {{isOnlineBool}}
 </div>
