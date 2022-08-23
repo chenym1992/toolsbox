@@ -1,4 +1,15 @@
 # fe-toolsbox
+### [0.0.11](https://github.com/chenym1992/toolsbox/compare/v0.0.10...v0.0.11) (2022-08-23)
+
+
+### Features
+
+* array-to-tree ([af9f012](https://github.com/chenym1992/toolsbox/commit/af9f01205967824d87bd3b037d2afb526784dfbe))
+* **device:** uaParser ([32a51de](https://github.com/chenym1992/toolsbox/commit/32a51de92dda9514ac39d1380522648d6a7643c5))
+* **dom:** createDom findDom ([fffd100](https://github.com/chenym1992/toolsbox/commit/fffd100df02d2e79d531d08c8f7afc2993e3d078))
+* **funtions:** deepCopy ([4220f0b](https://github.com/chenym1992/toolsbox/commit/4220f0bfc926b2540c96e11a31737853512f7fcd))
+* **helper:** isEvenOrOdd ([91e1cb6](https://github.com/chenym1992/toolsbox/commit/91e1cb6b609d355bf42503b6020a9c2b93d8b457))
+
 ### [0.0.10](https://github.com/chenym1992/toolsbox/compare/v0.0.9...v0.0.10) (2022-08-18)
 
 
