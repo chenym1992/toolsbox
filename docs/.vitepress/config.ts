@@ -74,7 +74,20 @@ export default defineConfig({
             },
             {
               text: 'dom',
-              link: '/guide/dom'
+              items: [
+                {
+                  text: 'document',
+                  link: '/guide/dom/document'
+                },
+                {
+                  text: 'fullscreen',
+                  link: '/guide/dom/fullscreen'
+                },
+                {
+                  text: 'class',
+                  link: '/guide/dom/class'
+                }
+              ]
             },
             {
               text: 'funtions',
