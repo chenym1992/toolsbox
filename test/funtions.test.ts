@@ -1,5 +1,4 @@
 import {
-  byteToString,
   debounce,
   deepCopy,
   EventEmitter,
@@ -9,20 +8,11 @@ import {
   isHttps,
   rgbaToHex,
   rgbToHex,
-  stringToByte,
   throttle
 } from '../src'
 
 describe('【Funtions Api】', () => {
-  test('#1 stringToByte', () => {
-    expect(stringToByte('123')).toEqual([49, 50, 51])
-  })
-
-  test('#2 byteToString', () => {
-    expect(byteToString([49, 50, 51])).toBe('123')
-  })
-
-  test('#3 throttle', () => {
+  test('#1 throttle', () => {
     jest.useFakeTimers()
     const funcSpy = jest.fn()
     const throttledFunc = throttle(funcSpy, 100)
@@ -33,7 +23,7 @@ describe('【Funtions Api】', () => {
     expect(funcSpy).toHaveBeenCalledTimes(5)
   })
 
-  test('#4 debounce', () => {
+  test('#2 debounce', () => {
     jest.useFakeTimers()
     const funcSpy = jest.fn()
     const debouncedFunc = debounce(funcSpy, 100)
@@ -48,7 +38,7 @@ describe('【Funtions Api】', () => {
     expect(funcSpy).toHaveBeenCalledTimes(25)
   })
 
-  test('#5 eventEmitter', () => {
+  test('#3 eventEmitter', () => {
     const bus = new EventEmitter()
     bus.once('click', res => {
       expect(res).toBe('123')
@@ -65,7 +55,7 @@ describe('【Funtions Api】', () => {
     bus.emit('click2', '1235')
   })
 
-  test('#6 convertColors', () => {
+  test('#4 convertColors', () => {
     expect(hexToRgb('#FFFFFF')).toBe('rgb(255,255,255)')
     expect(hexToRgba('#FFFFFF')).toBe('rgba(255,255,255,1)')
     expect(hexToRgba('#FFFFFF0F')).toBe('rgba(255,255,255,0.06)')
@@ -75,12 +65,12 @@ describe('【Funtions Api】', () => {
     expect(rgbaToHex('rgba(0,0,15,1)')).toBe('#00000F')
   })
 
-  test('#7  network', () => {
+  test('#5  network', () => {
     expect(isHttps('https://test.com')).toBeTruthy()
     expect(isHttp('http://test.com')).toBeTruthy()
   })
 
-  test('#8  deepCopy', () => {
+  test('#6  deepCopy', () => {
     const orin = {
       a: 1,
       b: 2,
