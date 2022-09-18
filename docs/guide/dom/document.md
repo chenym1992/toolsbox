@@ -36,9 +36,9 @@ const html = createDom(
   <button type="button" @click="handleCreateDom">CreateDom</button>
 </div>
 
-## createDom 创建 dom
+## findDom 查找 dom
 
-[source](https://github.com/chenym1992/toolsbox/blob/main/src/dom/index.ts#L73)
+[source](https://github.com/chenym1992/toolsbox/blob/main/src/dom/index.ts#L97)
 
 ```ts
 import { findDom } from 'fe-toolsbox'
