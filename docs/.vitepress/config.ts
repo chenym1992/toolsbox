@@ -91,7 +91,56 @@ export default defineConfig({
             },
             {
               text: 'funtions',
-              link: '/guide/funtions'
+              items: [
+                {
+                  text: 'helper',
+                  link: '/guide/funtions/helper'
+                },
+                {
+                  text: 'deepCopy',
+                  link: '/guide/funtions/deepCopy'
+                },
+                {
+                  text: 'byteToString',
+                  link: '/guide/funtions/byteToString'
+                },
+                {
+                  text: 'stringToByte',
+                  link: '/guide/funtions/stringToByte'
+                },
+                {
+                  text: 'throttle',
+                  link: '/guide/funtions/throttle'
+                },
+                {
+                  text: 'debounce',
+                  link: '/guide/funtions/debounce'
+                },
+                {
+                  text: 'eventEmitter',
+                  link: '/guide/funtions/eventEmitter'
+                },
+                {
+                  text: 'convertColors',
+                  link: '/guide/funtions/convertColors'
+                },
+                {
+                  text: 'random',
+                  link: '/guide/funtions/random'
+                },
+                {
+                  text: 'network',
+                  link: '/guide/funtions/network'
+                },
+                {
+                  text: 'dataURLtoBlob',
+                  link: '/guide/funtions/dataURLtoBlob'
+                },
+                {
+                  text: 'imageAndCanvas',
+                  link: '/guide/funtions/imageAndCanvas'
+                }
+              ]
             },
             {
               text: 'regexp',
