@@ -13,7 +13,3 @@ const dataUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSU...'
 dataURLtoBlob(dataUrl)
 ```
 
-<div class="demo">
-  {{dataURLtoBlob(dataUrl)}}
-</div>
-
