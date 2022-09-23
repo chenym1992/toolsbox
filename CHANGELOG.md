@@ -1,4 +1,18 @@
 # fe-toolsbox
+### [0.0.12](https://github.com/chenym1992/toolsbox/compare/v0.0.11...v0.0.12) (2022-09-23)
+
+
+### Features
+
+* dataURLtoBlob ([4328f75](https://github.com/chenym1992/toolsbox/commit/4328f75f8adc2e81fba0a847969bfe38eb42d0c1))
+* **helper:** compareFloatsReasonably clamp ([b4c61ef](https://github.com/chenym1992/toolsbox/commit/b4c61efee4fb97e01671c2cb92a08529d56af3b6))
+* **imageAndCanvas:** imageURLToImageInstance el ([7c6ec09](https://github.com/chenym1992/toolsbox/commit/7c6ec090dfc1fe52e69feea028fed7e3b411b621))
+
+
+### Bug Fixes
+
+* 各编码互转 TextDecoder，TextEncoder ([79f0fde](https://github.com/chenym1992/toolsbox/commit/79f0fdea3d7ea1583222088297db8153b9dcba83))
+
 ### [0.0.11](https://github.com/chenym1992/toolsbox/compare/v0.0.10...v0.0.11) (2022-08-23)
 
 
