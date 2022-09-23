@@ -83,7 +83,7 @@ export function bufferToCanvasAndImageData(
  * @param pixelData
  * @returns
  */
-export function rotatePixelData(pixelData: string | any[]) {
+export function rotatePixelData(pixelData: number[]) {
   const newPixelData = new Uint8ClampedArray(pixelData.length)
   let increasingIndex = 3
   for (let i = pixelData.length - 1; i >= 0; i -= 4) {
