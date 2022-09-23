@@ -121,7 +121,7 @@ export function isValidIdCard(string: string) {
     Birthday !=
     date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
   ) {
-    console.log('身份证上的出生日期非法')
+    // console.log('身份证上的出生日期非法')
     return false
   }
 
