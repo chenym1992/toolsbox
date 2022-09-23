@@ -139,7 +139,7 @@ declare function findDom(el: Document | undefined, selector: string): any
  * byteToString([49, 50, 51])
  * // => '123'
  */
-declare function byteToString(arr: number[]): string
+declare function byteToString(arr: BufferSource, label?: string): string
 
 /**
  * 字符串转字节数组
@@ -150,7 +150,7 @@ declare function byteToString(arr: number[]): string
  * stringToByte('123')
  * // => [49, 50, 51]
  */
-declare function stringToByte(str: string): number[]
+declare function stringToByte(str: string): Uint8Array
 
 /**
  * 节流
@@ -310,6 +310,30 @@ declare function randomUID(size?: number): string
  * @returns
  */
 declare function isEvenOrOdd(num: number): number
+/**
+ * 合理范围内数据比较
+ * @param a
+ * @param b
+ * @param float
+ * @returns
+ */
+declare function compareFloatsReasonably(
+  a: number,
+  b: number,
+  float?: number
+): boolean
+/**
+ * clamp
+ * @param val
+ * @param min
+ * @param max
+ * @returns
+ *
+ * @example
+ * clamp(1,2,3)
+ * // => 2
+ */
+declare function clamp(val: number, min: number, max: number): number
 
 /**
  * 深拷贝
@@ -318,6 +342,55 @@ declare function isEvenOrOdd(num: number): number
  * @returns
  */
 declare function deepCopy(dst: any, src: any): any
+
+/**
+ * imageURLToImageInstance
+ * @param url
+ * @returns
+ */
+declare function imageURLToImageInstance(url: string): Promise<unknown>
+/**
+ * imageToCanvasContext
+ * @param image
+ * @returns
+ */
+declare function imageToCanvasContext(
+  image: CanvasImageSource
+): CanvasRenderingContext2D | null
+/**
+ * imageToCanvas
+ * @param image
+ * @returns
+ */
+declare function imageToCanvas(image: CanvasImageSource): HTMLCanvasElement
+/**
+ * bufferToCanvasAndImageData
+ * @param buffer
+ * @param width
+ * @param height
+ * @returns
+ */
+declare function bufferToCanvasAndImageData(
+  buffer: Iterable<number>,
+  width: number,
+  height: number
+): {
+  canvas: HTMLCanvasElement
+  imageData: ImageData
+}
+/**
+ * rotatePixelData
+ * @param pixelData
+ * @returns
+ */
+declare function rotatePixelData(pixelData: number[]): Uint8ClampedArray
+
+/**
+ * dataurl转Blob对象
+ * @param dataURL
+ * @returns
+ */
+declare function dataURLtoBlob(dataURL: string): Blob
 
 /**
  * 判断hex颜色表达式
@@ -722,10 +795,14 @@ export {
   addClass,
   arrayToTree,
   average,
+  bufferToCanvasAndImageData,
   byteToString,
   checkPwdStrength,
+  clamp,
   classof,
+  compareFloatsReasonably,
   createDom,
+  dataURLtoBlob,
   dateFormat,
   debounce,
   deepCopy,
@@ -736,6 +813,9 @@ export {
   hasClass,
   hexToRgb,
   hexToRgba,
+  imageToCanvas,
+  imageToCanvasContext,
+  imageURLToImageInstance,
   isArray,
   isBankCardNumber,
   isBase64,
@@ -778,6 +858,7 @@ export {
   removeClass,
   rgbToHex,
   rgbaToHex,
+  rotatePixelData,
   stringToByte,
   stringifyQueryString,
   sum,

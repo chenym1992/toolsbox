@@ -1,5 +1,5 @@
 /*!
- * Toolsbox.js v0.0.10
+ * Toolsbox.js v0.0.11
  * (c) 2014-2022 chenym1992
  * Released under the MIT License.
  */
@@ -512,46 +512,9 @@ function findDom() {
  * // => '123'
  */
 function byteToString(arr) {
-  var out, i, len, c, char1, char2
-  out = ''
-  len = arr.length
-  i = 0
-
-  while (i < len) {
-    c = arr[i++]
-
-    switch (c >> 4) {
-      case 0:
-      case 1:
-      case 2:
-      case 3:
-      case 4:
-      case 5:
-      case 6:
-      case 7:
-        // 0xxxxxxx
-        out += String.fromCharCode(c)
-        break
-
-      case 12:
-      case 13:
-        // 110x xxxx   10xx xxxx
-        char1 = arr[i++]
-        out += String.fromCharCode(((c & 0x1f) << 6) | (char1 & 0x3f))
-        break
-
-      case 14:
-        // 1110 xxxx  10xx xxxx  10xx xxxx
-        char1 = arr[i++]
-        char2 = arr[i++]
-        out += String.fromCharCode(
-          ((c & 0x0f) << 12) | ((char1 & 0x3f) << 6) | ((char2 & 0x3f) << 0)
-        )
-        break
-    }
-  }
-
-  return out
+  var label =
+    arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'utf8'
+  return new TextDecoder(label).decode(arr)
 }
 
 /**
@@ -564,31 +527,7 @@ function byteToString(arr) {
  * // => [49, 50, 51]
  */
 function stringToByte(str) {
-  var bytes = []
-  var len = str.length
-  var c
-
-  for (var i = 0; i < len; i++) {
-    c = str.charCodeAt(i)
-
-    if (c >= 0x010000 && c <= 0x10ffff) {
-      bytes.push(((c >> 18) & 0x07) | 0xf0)
-      bytes.push(((c >> 12) & 0x3f) | 0x80)
-      bytes.push(((c >> 6) & 0x3f) | 0x80)
-      bytes.push((c & 0x3f) | 0x80)
-    } else if (c >= 0x000800 && c <= 0x00ffff) {
-      bytes.push(((c >> 12) & 0x0f) | 0xe0)
-      bytes.push(((c >> 6) & 0x3f) | 0x80)
-      bytes.push((c & 0x3f) | 0x80)
-    } else if (c >= 0x000080 && c <= 0x0007ff) {
-      bytes.push(((c >> 6) & 0x1f) | 0xc0)
-      bytes.push((c & 0x3f) | 0x80)
-    } else {
-      bytes.push(c & 0xff)
-    }
-  }
-
-  return bytes
+  return new TextEncoder().encode(str)
 }
 
 /**
@@ -1279,6 +1218,35 @@ function randomUID() {
 function isEvenOrOdd(num) {
   return num & 1
 }
+/**
+ * 合理范围内数据比较
+ * @param a
+ * @param b
+ * @param float
+ * @returns
+ */
+
+function compareFloatsReasonably(a, b) {
+  var _float =
+    arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0.001
+
+  return Math.abs(a - b) < _float
+}
+/**
+ * clamp
+ * @param val
+ * @param min
+ * @param max
+ * @returns
+ *
+ * @example
+ * clamp(1,2,3)
+ * // => 2
+ */
+
+function clamp(val, min, max) {
+  return Math.min(max, Math.max(val, min))
+}
 
 /**
  * 深拷贝
@@ -1304,6 +1272,125 @@ function deepCopy(dst, src) {
     })
     return dst
   }
+}
+
+/**
+ * imageURLToImageInstance
+ * @param url
+ * @returns
+ */
+function imageURLToImageInstance(url) {
+  return new Promise(function (resolve, reject) {
+    var img = new Image()
+
+    img.onload = function () {
+      resolve(img)
+    }
+
+    img.src = url
+    img.onerror = reject
+  })
+}
+/**
+ * imageToCanvasContext
+ * @param image
+ * @returns
+ */
+
+function imageToCanvasContext(image) {
+  var canvas = imageToCanvas(image)
+  return canvas.getContext('2d')
+}
+/**
+ * imageToCanvas
+ * @param image
+ * @returns
+ */
+
+function imageToCanvas(image) {
+  var canvas = document.createElement('canvas')
+  canvas.width = image.width
+  canvas.height = image.height
+  var ctx = canvas.getContext('2d')
+  ctx.drawImage(
+    image,
+    0,
+    0,
+    canvas.width,
+    canvas.height,
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  )
+  return canvas
+}
+/**
+ * bufferToCanvasAndImageData
+ * @param buffer
+ * @param width
+ * @param height
+ * @returns
+ */
+
+function bufferToCanvasAndImageData(buffer, width, height) {
+  var canvas = document.createElement('canvas')
+  canvas.width = width
+  canvas.height = height
+  var ctx = canvas.getContext('2d')
+  var imageData = ctx.createImageData(width, height)
+  imageData.data.set(new Uint8ClampedArray(buffer))
+  ctx.putImageData(imageData, 0, 0)
+  return {
+    canvas: canvas,
+    imageData: imageData
+  }
+}
+/**
+ * rotatePixelData
+ * @param pixelData
+ * @returns
+ */
+
+function rotatePixelData(pixelData) {
+  var newPixelData = new Uint8ClampedArray(pixelData.length)
+  var increasingIndex = 3
+
+  for (var i = pixelData.length - 1; i >= 0; i -= 4) {
+    newPixelData[increasingIndex] = pixelData[i]
+    newPixelData[increasingIndex - 1] = pixelData[i - 1]
+    newPixelData[increasingIndex - 2] = pixelData[i - 2]
+    newPixelData[increasingIndex - 3] = pixelData[i - 3]
+    increasingIndex += 4
+  }
+
+  return newPixelData
+}
+
+/**
+ * dataurl转Blob对象
+ * @param dataURL
+ * @returns
+ */
+function dataURLtoBlob(dataURL) {
+  var _arr$0$match
+
+  var arr = dataURL.split(',')
+  var mime =
+    (_arr$0$match = arr[0].match(/:(.*?);/)) === null || _arr$0$match === void 0
+      ? void 0
+      : _arr$0$match[1]
+  var bstr = atob(arr[1])
+  var n = bstr.length
+  var u8arr = new Uint8Array(n)
+
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n)
+  }
+
+  return new Blob([u8arr], {
+    type: mime
+  })
 }
 
 /**
@@ -1430,7 +1517,7 @@ function isValidIdCard(string) {
     Birthday !=
     date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
   ) {
-    console.log('身份证上的出生日期非法')
+    // console.log('身份证上的出生日期非法')
     return false
   } // 身份证号码校验
 
@@ -2884,10 +2971,14 @@ exports.UAParser = UAParser
 exports.addClass = addClass
 exports.arrayToTree = arrayToTree
 exports.average = average
+exports.bufferToCanvasAndImageData = bufferToCanvasAndImageData
 exports.byteToString = byteToString
 exports.checkPwdStrength = checkPwdStrength
+exports.clamp = clamp
 exports.classof = classof
+exports.compareFloatsReasonably = compareFloatsReasonably
 exports.createDom = createDom
+exports.dataURLtoBlob = dataURLtoBlob
 exports.dateFormat = dateFormat
 exports.debounce = debounce
 exports.deepCopy = deepCopy
@@ -2898,6 +2989,9 @@ exports.getUrlParams = getUrlParams
 exports.hasClass = hasClass
 exports.hexToRgb = hexToRgb
 exports.hexToRgba = hexToRgba
+exports.imageToCanvas = imageToCanvas
+exports.imageToCanvasContext = imageToCanvasContext
+exports.imageURLToImageInstance = imageURLToImageInstance
 exports.isArray = isArray
 exports.isBankCardNumber = isBankCardNumber
 exports.isBase64 = isBase64
@@ -2940,6 +3034,7 @@ exports.randomUID = randomUID
 exports.removeClass = removeClass
 exports.rgbToHex = rgbToHex
 exports.rgbaToHex = rgbaToHex
+exports.rotatePixelData = rotatePixelData
 exports.stringToByte = stringToByte
 exports.stringifyQueryString = stringifyQueryString
 exports.sum = sum

@@ -1,3 +1,4 @@
+const shell = require('shelljs')
 const standardVersion = require('standard-version')
 
 if (shell.exec('git commit -am "chore: build dist types"').code !== 0) {
